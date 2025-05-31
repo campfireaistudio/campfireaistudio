@@ -301,6 +301,14 @@
       transform: translateY(0);
     }
 
+/* Fix mobile background positioning */
+@media (max-width: 768px) {
+  .hero {
+    background-attachment: scroll;
+    background-position: center center;
+  }
+}
+    
     /* Fade-in animation keyframes */
     @keyframes fadeIn {
       to { opacity: 1; }
