@@ -301,11 +301,12 @@
       transform: translateY(0);
     }
 
-/* Fix mobile background positioning */
+/* Mobile Hero Image Fix */
 @media (max-width: 768px) {
   .hero {
-    background-attachment: scroll;
-    background-position: 30% center;
+    background-attachment: scroll; /* Override fixed attachment on mobile */
+    background-position: center center; /* Center the image */
+    background-size: cover;
   }
 }
     
