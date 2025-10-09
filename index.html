@@ -96,6 +96,9 @@
       padding: 0;
       box-sizing: border-box;
     }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--oled-black);
@@ -119,7 +122,7 @@
       z-index: 999;
       border-bottom: 1px solid rgba(62, 39, 35, 0.3);
     }
-    header h1 {
+    header .site-logo {
       font-size: 1.5rem;
       font-weight: 600;
       letter-spacing: -0.02em;
@@ -256,7 +259,14 @@
       padding: 0 1.5rem;
       text-align: center;
     }
-    .hero h2 {
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .hero h1 {
       font-size: 2.5rem;
       font-weight: 500;
       line-height: 1.25;
@@ -264,7 +274,15 @@
       color: var(--off-white);
       letter-spacing: -0.02em;
     }
+    .hero p {
+      max-width: 540px;
+      font-size: 1.05rem;
+      color: rgba(244, 237, 228, 0.9);
+    }
     .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(135deg, var(--burnt-orange) 0%, #b8490b 100%);
       color: var(--off-white);
       padding: 0.875rem 2rem;
@@ -280,6 +298,20 @@
       position: relative;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(204, 85, 0, 0.25);
+      text-decoration: none;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(244, 237, 228, 0.6);
+      color: var(--off-white);
+      box-shadow: none;
+    }
+    .btn-secondary:hover {
+      background: rgba(244, 237, 228, 0.08);
+      box-shadow: 0 8px 25px rgba(204, 85, 0, 0.2);
+    }
+    .btn-secondary::before {
+      display: none;
     }
     .btn::before {
       content: '';
@@ -335,6 +367,77 @@
       color: var(--off-white);
       font-weight: 400;
       opacity: 0.9;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+    .work-card {
+      background: rgba(10, 10, 10, 0.85);
+      border: 1px solid rgba(62, 39, 35, 0.35);
+      border-radius: 16px;
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    .work-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(204, 85, 0, 0.45);
+      box-shadow: 0 22px 55px rgba(204, 85, 0, 0.18);
+    }
+    .work-card-header {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .work-card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(204, 85, 0, 0.15);
+      font-size: 1.35rem;
+    }
+    .work-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .work-card strong {
+      display: block;
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: rgba(244, 237, 228, 0.85);
+    }
+    .work-card blockquote {
+      margin: 0;
+      padding: 1.25rem 1.5rem;
+      border-left: 3px solid rgba(204, 85, 0, 0.5);
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 12px;
+      font-style: italic;
+      color: rgba(244, 237, 228, 0.88);
+      line-height: 1.6;
+    }
+    .work-card cite {
+      display: block;
+      margin-top: 0.75rem;
+      font-style: normal;
+      color: rgba(244, 237, 228, 0.6);
+      font-size: 0.9rem;
+      letter-spacing: 0.01em;
+    }
+    .work-card .btn {
+      align-self: center;
+      margin-top: auto;
     }
 
 /* Grid Gallery for Portfolio */
@@ -576,6 +679,7 @@
     }
     #contact input[type="text"],
     #contact input[type="email"],
+    #contact select,
     #contact textarea {
       background-color: var(--input-bg);
       border: 1px solid rgba(62, 39, 35, 0.4);
@@ -589,6 +693,7 @@
     }
     #contact input[type="text"]:focus,
     #contact input[type="email"]:focus,
+    #contact select:focus,
     #contact textarea:focus {
       outline: none;
       border-color: var(--burnt-orange);
@@ -629,14 +734,6 @@
       opacity: 1;
     }
 
-    /* About section improvements */
-    #about p {
-      font-size: 1.05rem;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
     /* Contact section improvements */
     #contact > p {
       text-align: center;
@@ -671,36 +768,77 @@
   transform: none !important;
   box-shadow: 0 4px 15px rgba(204, 85, 0, 0.25) !important;
 }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
   </style>
 </head>
 <body>
   <header>
-    <h1>CAMPFIRE AI Studio</h1>
+    <p class="site-logo">CAMPFIRE AI Studio</p>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
     </div>
     <nav id="navLinks">
-      <a href="#about">About</a>
+      <a href="#hero">About</a>
+      <a href="#work">Work</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <div class="hero">
+  <section id="hero" class="hero">
     <div class="hero-content">
-      <h2>Helping brands, agencies, and creators tell stories through AI</h2>
-      <button class="btn" onclick="document.querySelector('#portfolio').scrollIntoView({behavior: 'smooth'});">View Portfolio</button>
+      <h1>Photorealistic AI imagery for brands, creators, and collectors.</h1>
+      <p>CAMPFIRE AI Studio, led by Andrew Salinas, blends crisp realism with sparks of surreal imagination to help ideas look their best.</p>
+      <div class="hero-buttons">
+        <a class="btn" href="#contact" aria-label="Start a project by jumping to the contact form">Start a Project</a>
+        <a class="btn btn-secondary" href="#work" aria-label="See CAMPFIRE AI Studio's work offerings">See Work</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-<section id="about">
-  <h2>About</h2>
-  <p>Hey, I'm Andrew, creator behind CAMPFIRE AI Studio. I use generative AI to bring ideas to life through art that feels human. Using cutting-edge models and a keen eye for realism, I create visuals that are photorealistic and thoughtfully crafted. Whether you're a brand, agency, or independent creator, I focus on your objectives, creating visuals that make them a reality. Let's work together to build something unique.</p>
-</section>
+  <section id="work">
+    <h2>Work</h2>
+    <div class="work-grid">
+      <article class="work-card">
+        <div class="work-card-header">
+          <span class="work-card-icon" aria-hidden="true">🎬</span>
+          <h3>Digital Content</h3>
+        </div>
+        <strong>Campaign-ready images &amp; shortform video.</strong>
+        <a class="btn" href="?type=digital#contact" aria-label="Start a digital content project via the contact form">Start Digital Project</a>
+      </article>
+      <article class="work-card">
+        <div class="work-card-header">
+          <span class="work-card-icon" aria-hidden="true">🖼️</span>
+          <h3>Prints &amp; Commissions</h3>
+        </div>
+        <strong>From prompt to print—archival &amp; framed.</strong>
+        <a class="btn" href="?type=print#contact" aria-label="Commission a print via the contact form">Commission a Print</a>
+      </article>
+      <article class="work-card">
+        <div class="work-card-header">
+          <span class="work-card-icon" aria-hidden="true">💡</span>
+          <h3>Generative-AI Consulting</h3>
+        </div>
+        <strong>Stand up a reliable AI image pipeline.</strong>
+        <a class="btn" href="?type=consulting#contact" aria-label="Discuss consulting via the contact form">Discuss Consulting</a>
+      </article>
+    </div>
+  </section>
 
   <section id="portfolio">
-  <h2>Portfolio</h2>
-<div class="grid">
+    <h2>Portfolio</h2>
+    <div class="grid">
     <div class="gallery-item" data-title="Interior & Spatial Design" data-caption="Elevate interior design projects with fully customizable, original imagery. If you can describe it, I can create it.">
       <div class="image-wrapper">
         <img class="primary"   loading="lazy" src="campfireai_portfolio/marble_1.jpg"  alt="White marble vase with dry branches">
@@ -757,15 +895,25 @@
       </div>
       <h3 class="gallery-title">Personal Art Collecting</h3>
     </div>
-  </div>
-</section>
+    </div>
+  </section>
 
   <section id="contact">
-    <h2>Contact</h2>
+    <h2>Start a Project</h2>
     <p>Ready to visualize your next big idea? Briefly describe your needs below, and I'll connect with you within 24-48 hours.</p>
     <form action="https://formspree.io/f/xgvkgkdy" method="POST" style="margin-top: 1.5rem;">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="_replyto" placeholder="Your Email" required>
+      <label class="sr-only" for="name">Your Name</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <label class="sr-only" for="email">Your Email</label>
+      <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
+      <label class="sr-only" for="projectType">Project Type</label>
+      <select id="projectType" name="project_type" required>
+        <option value="" disabled selected>Select a project type</option>
+        <option value="digital">Digital</option>
+        <option value="print">Print</option>
+        <option value="consulting">Consulting</option>
+        <option value="other">Other</option>
+      </select>
       <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
       <button class="btn" type="submit">Send Message</button>
     </form>
@@ -806,6 +954,19 @@
             const isExpanded = navLinks.classList.contains('nav-open');
             hamburger.setAttribute('aria-expanded', isExpanded);
         });
+    }
+
+    const projectTypeSelect = document.getElementById('projectType');
+    if (projectTypeSelect) {
+        const params = new URLSearchParams(window.location.search);
+        const typeParam = params.get('type');
+        if (typeParam) {
+            const normalizedType = typeParam.toLowerCase();
+            const allowedTypes = ['digital', 'print', 'consulting', 'other'];
+            if (allowedTypes.includes(normalizedType)) {
+                projectTypeSelect.value = normalizedType;
+            }
+        }
     }
 
     // JavaScript for Lightbox Functionality
