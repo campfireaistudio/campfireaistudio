@@ -371,73 +371,91 @@
 
     .work-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2.5rem;
       margin-top: 3rem;
     }
     .work-card {
-      background: rgba(10, 10, 10, 0.85);
+      background: rgba(10, 10, 10, 0.88);
       border: 1px solid rgba(62, 39, 35, 0.35);
-      border-radius: 16px;
-      padding: 2.25rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
+      border-radius: 18px;
+      overflow: hidden;
       box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
       transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
     }
     .work-card:hover {
       transform: translateY(-8px);
       border-color: rgba(204, 85, 0, 0.45);
       box-shadow: 0 22px 55px rgba(204, 85, 0, 0.18);
     }
-    .work-card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.85rem;
+    .work-card-media {
+      position: relative;
     }
-    .work-card-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
+    .work-card-media .gallery-item {
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
+      height: 100%;
+    }
+    .work-card-media .gallery-item:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: transparent;
+    }
+    .work-card-media .image-wrapper {
+      aspect-ratio: 4 / 3;
+    }
+    .work-card-content {
+      padding: 2.25rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
       justify-content: center;
-      background: rgba(204, 85, 0, 0.15);
-      font-size: 1.35rem;
     }
     .work-card h3 {
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 600;
       letter-spacing: -0.01em;
     }
-    .work-card strong {
-      display: block;
+    .work-card-description {
       font-size: 1.05rem;
-      font-weight: 500;
       color: rgba(244, 237, 228, 0.85);
+      line-height: 1.7;
     }
-    .work-card blockquote {
-      margin: 0;
-      padding: 1.25rem 1.5rem;
-      border-left: 3px solid rgba(204, 85, 0, 0.5);
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 12px;
-      font-style: italic;
-      color: rgba(244, 237, 228, 0.88);
-      line-height: 1.6;
+    .work-card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
     }
-    .work-card cite {
-      display: block;
-      margin-top: 0.75rem;
-      font-style: normal;
-      color: rgba(244, 237, 228, 0.6);
-      font-size: 0.9rem;
-      letter-spacing: 0.01em;
+    .work-card-actions .btn,
+    .work-card-actions .btn.btn-secondary {
+      flex: 1 1 220px;
+      justify-content: center;
+      margin-top: 0;
     }
-    .work-card .btn {
-      align-self: center;
-      margin-top: auto;
+    @media (min-width: 900px) {
+      .work-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+      }
+      .work-card-content {
+        padding: 2.5rem;
+      }
+    }
+    @media (max-width: 540px) {
+      .work-card-content {
+        padding: 2rem 1.5rem;
+      }
+      .work-card-actions {
+        flex-direction: column;
+      }
+      .work-card-actions .btn,
+      .work-card-actions .btn.btn-secondary {
+        flex-basis: auto;
+        width: 100%;
+      }
     }
 
 /* Grid Gallery for Portfolio */
@@ -482,6 +500,7 @@
       width: 100%;
       height: auto;
       display: block;
+      transition: opacity 0.6s ease-in-out;
     }
     .gallery-item img.primary {
       display: block;
@@ -491,8 +510,7 @@
     }
     .gallery-item img.secondary {
       position: absolute;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -810,32 +828,64 @@
     <h2>Work</h2>
     <div class="work-grid">
       <article class="work-card">
-        <div class="work-card-header">
-          <span class="work-card-icon" aria-hidden="true">🎬</span>
+        <div class="work-card-media">
+          <div class="gallery-item autoplay" data-title="Digital Content" data-caption="Looping showcase of campaign-ready AI visuals for brands and agencies.">
+            <div class="image-wrapper">
+              <img class="primary"   src="campfireai_portfolio/work/digital/digital_1.webp" loading="lazy" alt="Digital artwork showcasing a futuristic retail activation">
+              <img class="secondary" src="campfireai_portfolio/work/digital/digital_2.webp" loading="lazy" alt="Digital campaign storyboard with AI-generated visuals">
+            </div>
+            <h3 class="gallery-title sr-only">Digital Content</h3>
+          </div>
+        </div>
+        <div class="work-card-content">
           <h3>Digital Content</h3>
+          <p class="work-card-description">Campaign-ready images &amp; shortform video.</p>
+          <div class="work-card-actions">
+            <a class="btn" href="?type=digital#contact" aria-label="Start a digital content project via the contact form">Start Digital Project</a>
+            <a class="btn btn-secondary" href="#portfolio" aria-label="View digital content examples in the portfolio section">View Digital Work</a>
+          </div>
         </div>
-        <strong>Campaign-ready images &amp; shortform video.</strong>
-        <a class="btn" href="?type=digital#contact" aria-label="Start a digital content project via the contact form">Start Digital Project</a>
       </article>
       <article class="work-card">
-        <div class="work-card-header">
-          <span class="work-card-icon" aria-hidden="true">🖼️</span>
+        <div class="work-card-media">
+          <div class="gallery-item autoplay" data-title="Prints &amp; Commissions" data-caption="Archival-quality AI artworks crafted for collectors and interior designers.">
+            <div class="image-wrapper">
+              <img class="primary"   src="campfireai_portfolio/work/prints/prints_1.webp" loading="lazy" alt="Framed AI art print hanging in a modern living room">
+              <img class="secondary" src="campfireai_portfolio/work/prints/prints_2.webp" loading="lazy" alt="Close-up of textured AI-generated art print">
+            </div>
+            <h3 class="gallery-title sr-only">Prints &amp; Commissions</h3>
+          </div>
+        </div>
+        <div class="work-card-content">
           <h3>Prints &amp; Commissions</h3>
+          <p class="work-card-description">From prompt to print, ready to display.</p>
+          <div class="work-card-actions">
+            <a class="btn" href="?type=print#contact" aria-label="Commission a print via the contact form">Commission a Print</a>
+            <a class="btn btn-secondary" href="#portfolio" aria-label="See finished print examples in the portfolio section">See Print Examples</a>
+          </div>
         </div>
-        <strong>From prompt to print—archival &amp; framed.</strong>
-        <a class="btn" href="?type=print#contact" aria-label="Commission a print via the contact form">Commission a Print</a>
       </article>
       <article class="work-card">
-        <div class="work-card-header">
-          <span class="work-card-icon" aria-hidden="true">💡</span>
-          <h3>Generative-AI Consulting</h3>
+        <div class="work-card-media">
+          <div class="gallery-item autoplay" data-title="Generative-AI Consulting" data-caption="Collaborative guidance to build an AI image pipeline that fits your workflow.">
+            <div class="image-wrapper">
+              <img class="primary"   src="campfireai_portfolio/work/consulting/consulting_1.webp" loading="lazy" alt="Creative team collaborating over AI concept sketches">
+              <img class="secondary" src="campfireai_portfolio/work/consulting/consulting_2.webp" loading="lazy" alt="Consultant presenting AI image strategy to clients">
+            </div>
+            <h3 class="gallery-title sr-only">Generative-AI Consulting</h3>
+          </div>
         </div>
-        <strong>Stand up a reliable AI image pipeline.</strong>
-        <a class="btn" href="?type=consulting#contact" aria-label="Discuss consulting via the contact form">Discuss Consulting</a>
+        <div class="work-card-content">
+          <h3>Generative-AI Consulting</h3>
+          <p class="work-card-description">Expert guidance to streamline your creative process.</p>
+          <div class="work-card-actions">
+            <a class="btn" href="?type=consulting#contact" aria-label="Discuss consulting via the contact form">Discuss Consulting</a>
+            <a class="btn btn-secondary" href="#portfolio" aria-label="Explore consulting outcomes in the portfolio section">Explore Case Studies</a>
+          </div>
+        </div>
       </article>
     </div>
   </section>
-
   <section id="portfolio">
     <h2>Portfolio</h2>
     <div class="grid">
@@ -1116,6 +1166,25 @@ function showErrorMessage(message) {
             }
         });
     }
+
+    // Auto-fade for marked cards only
+    document.querySelectorAll('.gallery-item.autoplay').forEach((item, idx) => {
+      const primary = item.querySelector('.primary');
+      const secondary = item.querySelector('.secondary');
+      if (!primary || !secondary) return;
+      // Ensure starting state
+      primary.style.opacity = '1';
+      secondary.style.opacity = '0';
+      // Slight stagger so not all flip at once
+      const startDelay = 250 * idx;
+      setTimeout(() => {
+        setInterval(() => {
+          const p = getComputedStyle(primary).opacity === '1';
+          primary.style.opacity = p ? '0' : '1';
+          secondary.style.opacity = p ? '1' : '0';
+        }, 3000); // 3 sec rotation
+      }, startDelay);
+    });
   </script>
 </body>
 </html>
