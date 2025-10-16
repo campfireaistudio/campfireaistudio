@@ -742,6 +742,9 @@
       resize: vertical;
       min-height: 120px;
     }
+    #contact .honeypot-field {
+      display: none;
+    }
     #contact .btn {
       align-self: flex-start;
     }
@@ -975,6 +978,10 @@
         <option value="consulting">Consulting</option>
         <option value="other">Other</option>
       </select>
+      <div class="honeypot-field" aria-hidden="true">
+        <label class="sr-only" for="company">Company</label>
+        <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" placeholder="Company">
+      </div>
       <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
       <button class="btn" type="submit">Send Message</button>
     </form>
