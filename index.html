@@ -1,1208 +1,611 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  
-  <!-- Primary Meta Tags -->
-  <title>CAMPFIRE AI Studio - AI Art & Visual Storytelling</title>
-  <meta name="title" content="CAMPFIRE AI Studio - AI Art & Visual Storytelling | Andrew"/>
-  <meta name="description" content="Professional AI-generated art studio delivering photorealistic interior, hospitality, culinary, and retail visuals for brands and agencies."/>
-  <meta name="keywords" content="AI art, generative AI, visual storytelling, interior design visuals, hospitality art, retail advertising, brand imagery, photorealistic AI, custom artwork, campfire ai studio"/>
-  <meta name="author" content="Andrew - CAMPFIRE AI Studio"/>
-  <meta name="robots" content="index, follow"/>
-  
-  <!-- Canonical URL -->
-  <link rel="canonical" href="https://campfireaistudio.com"/>
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://campfireaistudio.com"/>
-  <meta property="og:locale" content="en_US"/>
-  <meta property="og:title" content="CAMPFIRE AI Studio - AI Art & Visual Storytelling"/>
-  <meta property="og:description" content="Professional AI-generated art and visual storytelling for brands, agencies, and creators. Photorealistic visuals that bring ideas to life."/>
-  <meta property="og:image" content="https://campfireaistudio.com/campfireai_portfolio/campfirehero.jpg"/>
-  <meta property="og:image:type" content="image/jpeg"/>
-  <meta property="og:image:width" content="1200"/>
-  <meta property="og:image:height" content="630"/>
-  <meta property="og:image:alt" content="Hero collage showcasing CAMPFIRE AI Studio artwork"/>
-  <meta property="og:site_name" content="CAMPFIRE AI Studio"/>
-  
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image"/>
-  <meta property="twitter:url" content="https://campfireaistudio.com"/>
-  <meta property="twitter:title" content="CAMPFIRE AI Studio - AI Art & Visual Storytelling"/>
-  <meta property="twitter:description" content="Professional AI-generated art and visual storytelling for brands, agencies, and creators. Photorealistic visuals that bring ideas to life."/>
-  <meta property="twitter:image" content="https://campfireaistudio.com/campfireai_portfolio/campfirehero.jpg"/>
-  <meta name="twitter:image:alt" content="Hero collage showcasing CAMPFIRE AI Studio artwork"/>
-  <meta property="twitter:creator" content="@campfireai"/>
-  <meta property="twitter:site" content="@campfireai"/>
-  
-  <!-- Additional SEO Meta Tags -->
-  <meta name="theme-color" content="#000000"/>
-  <meta name="msapplication-TileColor" content="#000000"/>
-  <meta name="application-name" content="CAMPFIRE AI Studio"/>
-  
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "@id": "https://campfireaistudio.com/#studio",
-    "name": "CAMPFIRE AI Studio",
-    "alternateName": "Campfire AI Studio",
-    "url": "https://campfireaistudio.com",
-    "description": "Professional AI-generated art studio delivering photorealistic visuals for interior, hospitality, culinary, and retail experiences.",
-    "image": "https://campfireaistudio.com/campfireai_portfolio/campfirehero.jpg",
-    "logo": "https://campfireaistudio.com/campfireai_portfolio/favicon_1.png",
-    "founder": {
-      "@type": "Person",
-      "name": "Andrew",
-      "jobTitle": "AI Artist & Visual Storyteller"
-    },
-    "areaServed": ["Worldwide"],
-    "serviceType": [
-      "AI Art Generation",
-      "Visual Storytelling",
-      "Interior Design Visuals",
-      "Brand Imagery",
-      "Retail Advertising"
-    ],
-    "sameAs": [
-      "https://www.instagram.com/campfire.ai/",
-      "https://www.tiktok.com/@campfire.ai",
-      "https://x.com/campfireai"
-    ]
-  }
-  </script>
-  
-  <!-- Favicons -->
-  <link rel="icon" type="image/jpeg" href="campfireai_portfolio/favicon_1.png"/>
-  <link rel="apple-touch-icon" sizes="180x180" href="campfireai_portfolio/apple_touch_icon_1.jpg"/>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CAMPFIRE AI Studio · Story-Driven AI Visuals</title>
+  <meta name="description" content="CAMPFIRE AI Studio crafts story-driven AI imagery that blends storytelling, brand strategy, and art direction for hospitality, retail, and lifestyle brands." />
+  <link rel="canonical" href="https://campfireaistudio.com" />
+  <link rel="icon" type="image/png" href="campfireai_portfolio/favicon_1.png" />
+  <link rel="apple-touch-icon" href="campfireai_portfolio/apple_touch_icon_1.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
   <style>
-    :root {
-      /* Updated Color Palette */
-      --oled-black: #000000;
-      --off-white: #F4EDE4;
-      --burnt-orange: #CC5500;
-      --dark-brown: #3E2723;
-      
-      /* Input field variables */
-      --input-bg: #1a1a1a;
-      --input-border: var(--dark-brown);
-      --input-color: var(--off-white);
-      --input-padding: 0.875rem 1rem;
-      --input-radius: 6px;
-      --input-font-size: 0.95rem;
-    }
-
-    /* Base Styles */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    /* Site-wide background images for desktop vs. mobile */
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--oled-black);
-      color: var(--off-white);
-      font-weight: 400;
-      line-height: 1.6;
-    }
-
-    /* Sticky Header with Basic Responsiveness */
-    header {
-      position: sticky;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(10px);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 2rem;
-      z-index: 999;
-      border-bottom: 1px solid rgba(62, 39, 35, 0.3);
-    }
-    header .site-logo {
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, var(--off-white) 0%, var(--burnt-orange) 50%, #ff6b1a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      text-decoration: none;
-      display: inline-block;
-    }
-    nav {
-      display: flex;
-    }
-    nav a {
-      color: var(--off-white);
-      margin-left: 2.5rem;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.01em;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--burnt-orange);
-      transition: width 0.3s ease;
-    }
-    nav a:hover {
-      color: var(--burnt-orange);
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    /* Hamburger Menu for Mobile */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-    .hamburger span {
-      height: 2px;
-      width: 24px;
-      background: var(--off-white);
-      margin-bottom: 5px;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-    .hamburger:hover span {
-      background: var(--burnt-orange);
-    }
-    
-    /* Responsive adjustments for smaller screens */
-    @media (max-width: 768px) {
-      nav {
-        position: absolute;
-        top: 70px;
-        right: 0;
-        background: rgba(0,0,0,0.98);
-        backdrop-filter: blur(15px);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1.5rem;
-        display: none;
-        border: 1px solid rgba(62, 39, 35, 0.5);
-        border-radius: 8px;
-        min-width: 200px;
-      }
-      nav a {
-        margin: 0.75rem 0;
-        font-size: 1rem;
-      }
-      .nav-open {
-        display: flex !important;
-      }
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    /* Mobile Hero Improvements */
-@media (max-width: 768px) {
-
-  /* 1. Darken the campfire photo just on phones */
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;                       /* cover the whole hero */
-    background: rgba(0,0,0,0.55);   /* tweak 0.55 – 0.70 to taste */
-    z-index: 1;                     /* sits under the text */
-    pointer-events: none;           /* keeps it non-interactive */
-  }
-
-  /* 2. Pull the text above the new overlay + add a subtle glow */
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.85);
-  }
-}
-        
-    /* Hero Section with Fade-In Animation */
-    .hero {
-      height: 100vh;
-      background: url('campfireai_portfolio/campfirehero.jpg') left center/cover no-repeat;
+      background-image: url('campfireai_assets/backgrounds/campfire_landscape.webp');
+      background-size: cover;
+      background-position: center;
       background-attachment: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      background-repeat: no-repeat;
     }
-    .hero::after {
-      content: '';
+    @media (max-width: 768px) {
+      body {
+        background-image: url('campfireai_assets/backgrounds/campfire_portrait.webp');
+        background-attachment: scroll;
+      }
+    }
+    /* Ensure content panels remain readable on top of bg */
+    .site-header, section, .site-footer {
+      background: rgba(0,0,0,0.78);
+      backdrop-filter: blur(6px);
+    }
+    .hero { background: transparent; }
+
+    /* Gentle glass gradient so the campfire bg peeks through */
+    .why-ai,
+    .services {
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6) 0%,
+        rgba(0,0,0,0.28) 18%,
+        rgba(0,0,0,0.22) 50%,
+        rgba(0,0,0,0.28) 82%,
+        rgba(0,0,0,0.6) 100%
+      );
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+
+    /* Apply glass treatment to specific cards */
+    .why-card.glass-card,
+    .service-card.glass-card,
+    .process-steps li.glass-card {
+      display: block;
+      background: rgba(0, 0, 0, 0.32);
+      border-radius: 16px;
+      padding: 1.25rem;
+      overflow: hidden; /* ensures rounded media corners */
+    }
+    @media (min-width: 900px) {
+      .why-card.glass-card,
+      .service-card.glass-card,
+      .process-steps li.glass-card {
+        background: rgba(0, 0, 0, 0.38);
+        padding: 1.5rem;
+      }
+    }
+    /* Service card media should inherit rounding inside glass */
+    .service-card.glass-card .service-media {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .service-card.glass-card .service-media img {
+      border-radius: 0; /* already clipped by parent */
+    }
+
+    /* MOVED TO styles.css: .service-grid glass-card layout overrides */
+    .why-grid { gap: 1rem; }
+
+    /* MOVED TO styles.css: .process-steps glass timeline overrides */
+
+    /* Contact form as a glass card */
+    .contact-inner {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 900px) {
+      .contact-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+    .contact-form.glass-card {
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px) saturate(110%);
+      -webkit-backdrop-filter: blur(8px) saturate(110%);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+    @media (min-width: 900px) {
+      .contact-form.glass-card {
+        background: rgba(0, 0, 0, 0.38);
+        padding: 2rem;
+      }
+    }
+    /* Inputs inside the glass form */
+    .contact-form.glass-card .form-field input,
+    .contact-form.glass-card .form-field select,
+    .contact-form.glass-card .form-field textarea {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+    }
+    .contact-form.glass-card .form-field input::placeholder,
+    .contact-form.glass-card .form-field textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .contact-form.glass-card .form-field input:focus,
+    .contact-form.glass-card .form-field select:focus,
+    .contact-form.glass-card .form-field textarea:focus {
+      outline: none;
+      border-color: rgba(204, 85, 0, 0.4);
+      box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.18);
+    }
+    .contact-form.glass-card .btn-primary {
+      width: 100%;
+    }
+
+    /* --- Nav underline behavior: exclude .nav-cta and give it a unique hover --- */
+    .site-header .site-nav a {
+      position: relative;
+      text-decoration: none; /* base reset so we control underline */
+    }
+
+    /* Underline appears on hover/focus for regular nav links only (not the pill) */
+    .site-header .site-nav a:not(.nav-cta)::after {
+      content: "";
       position: absolute;
-      bottom: 0;
       left: 0;
-      width: 100%;
-      height: 120px;
-      background: linear-gradient(to bottom, transparent, var(--oled-black));
-      pointer-events: none;
-      z-index: 2;
-    }
-    .hero-content {
-      max-width: 650px;
+      right: 0;
+      bottom: -2px;
+      height: 2px;
+      background: currentColor;
       opacity: 0;
-      animation: fadeIn 1s forwards ease-in-out;
-      animation-delay: 0.2s;
-      padding: 0 1.5rem;
-      text-align: center;
+      transform: translateY(3px);
+      transition: opacity 160ms ease, transform 160ms ease;
     }
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-      margin-top: 1.5rem;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      font-weight: 500;
-      line-height: 1.25;
-      margin-bottom: 1.5rem;
-      color: var(--off-white);
-      letter-spacing: -0.02em;
-    }
-    .hero p {
-      max-width: 540px;
-      font-size: 1.05rem;
-      color: rgba(244, 237, 228, 0.9);
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--burnt-orange) 0%, #b8490b 100%);
-      color: var(--off-white);
-      padding: 0.875rem 2rem;
-      border: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      border-radius: 6px;
-      margin-top: 1rem;
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      font-family: 'Inter', sans-serif;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 4px 15px rgba(204, 85, 0, 0.25);
-      text-decoration: none;
-    }
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(244, 237, 228, 0.6);
-      color: var(--off-white);
-      box-shadow: none;
-    }
-    .btn-secondary:hover {
-      background: rgba(244, 237, 228, 0.08);
-      box-shadow: 0 8px 25px rgba(204, 85, 0, 0.2);
-    }
-    .btn-secondary::before {
-      display: none;
-    }
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
-      transition: left 0.6s ease;
-    }
-    .btn:hover::before {
-      left: 100%;
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(204, 85, 0, 0.35);
-    }
-    .btn:active {
+
+    .site-header .site-nav a:not(.nav-cta):hover::after,
+    .site-header .site-nav a:not(.nav-cta):focus-visible::after {
+      opacity: 1;
       transform: translateY(0);
     }
 
-/* Mobile Hero Image Fix */
-@media (max-width: 768px) {
-  .hero {
-    background-attachment: scroll; /* Override fixed attachment on mobile */
-    background-position: left center; /* Center the image */
-    background-size: cover;
-  }
-}
-    
-    /* Fade-in animation keyframes */
-    @keyframes fadeIn {
-      to { opacity: 1; }
+    /* Hard kill any pseudo-underline that might be injected globally */
+    .site-header .site-nav .nav-cta::after {
+      content: none !important;
+      display: none !important;
+      background: none !important;
+      height: 0 !important;
     }
 
-    /* General Section Styling */
-    section:not(.hero) {
-      padding: 5rem 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
-    section h2 {
-      font-size: 2.25rem;
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: var(--off-white);
-      letter-spacing: -0.02em;
-    }
-    section p {
-      line-height: 1.7;
-      color: var(--off-white);
-      font-weight: 400;
-      opacity: 0.9;
-    }
-
-    .work-grid {
-      display: grid;
-      gap: 2.5rem;
-      margin-top: 3rem;
-    }
-    .work-card {
-      background: rgba(10, 10, 10, 0.88);
-      border: 1px solid rgba(62, 39, 35, 0.35);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
-      transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .work-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(204, 85, 0, 0.45);
-      box-shadow: 0 22px 55px rgba(204, 85, 0, 0.18);
-    }
-    .work-card-media {
-      position: relative;
-    }
-    .work-card-media .gallery-item {
-      border-radius: 0;
-      border: none;
-      box-shadow: none;
-      height: 100%;
-    }
-    .work-card-media .gallery-item:hover {
-      transform: none;
-      box-shadow: none;
-      border-color: transparent;
-    }
-    .work-card-media .image-wrapper {
-      aspect-ratio: 3 / 4;
-    }
-    .work-card-media .image-wrapper img {
-      height: 100%;
-      object-fit: cover;
-    }
-    .work-card-content {
-      padding: 2.25rem 2rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    /* Ensure the pill CTA never shows an underline (override any global link underline/gradient) */
+    .site-header .site-nav .nav-cta,
+    .site-header .site-nav .nav-cta:hover,
+    .site-header .site-nav .nav-cta:focus,
+    .site-header .site-nav .nav-cta:focus-visible,
+    .site-header .site-nav .nav-cta:active {
+      text-decoration: none !important;
+      background-image: none !important; /* cancels underline/gradients from external CSS */
+      border-bottom: 0 !important;       /* guard against border-based underlines */
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
     }
-    .work-card h3 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
+
+    /* Give the pill CTA its own pleasant hover/focus treatment */
+    .site-header .site-nav .nav-cta {
+      border-radius: 999px;
+      padding: 0.5rem 0.9rem;
+      background: #CC5500;
+      color: #fff;
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.12),
+        0 6px 18px rgba(204,85,0,0.25);
+      transition: transform 140ms ease, box-shadow 180ms ease, background 180ms ease;
+      text-decoration: none !important;
+      background-image: none !important;
     }
-    .work-card-description {
-      font-size: 1.05rem;
-      color: rgba(244, 237, 228, 0.85);
-      line-height: 1.7;
+
+    .site-header .site-nav .nav-cta:hover,
+    .site-header .site-nav .nav-cta:focus,
+    .site-header .site-nav .nav-cta:focus-visible {
+      text-decoration: none !important;
+      background-image: none !important;
+      transform: translateY(-1px);
+      background: #d35e0a; /* subtle lift in brightness */
+      box-shadow:
+        0 0 0 3px rgba(204,85,0,0.25),
+        0 10px 28px rgba(0,0,0,0.35);
     }
-    .work-card-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
-    .work-card-actions .btn,
-    .work-card-actions .btn.btn-secondary {
-      flex: 1 1 220px;
+
+    /* --- Match Hero primary + Contact submit to header CTA style --- */
+    .hero .btn.btn-primary,
+    .contact-form .btn.btn-primary {
+      border-radius: 999px;
+      padding: 0.5rem 0.9rem;
+      background: #CC5500;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
-      margin-top: 0;
-    }
-    @media (min-width: 900px) {
-      .work-card {
-        display: grid;
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-      }
-      .work-card-content {
-        padding: 2.5rem;
-      }
-    }
-    @media (max-width: 540px) {
-      .work-card-content {
-        padding: 2rem 1.5rem;
-      }
-      .work-card-actions {
-        flex-direction: column;
-      }
-      .work-card-actions .btn,
-      .work-card-actions .btn.btn-secondary {
-        flex-basis: auto;
-        width: 100%;
-      }
+      box-shadow:
+        inset 0 0 0 1px rgba(255,255,255,0.12),
+        0 6px 18px rgba(204,85,0,0.25);
+      transition: transform 140ms ease, box-shadow 180ms ease, background 180ms ease;
+      text-decoration: none !important;
+      background-image: none !important;
+      border: none !important;
     }
 
-/* Grid Gallery for Portfolio */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2.5rem 1.5rem;
-}
-
-/* Mobile: Force 2 columns for portfolio */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem 1rem;
-    padding: 0 0.5rem;
-  }
-}
-
-    .gallery-item {
-      position: relative;
-      box-shadow: 0 4px 20px rgba(244, 237, 228, 0.03);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
-      border-radius: 10px;
-      background-color: #0a0a0a;
-      overflow: hidden;
-      border: 1px solid rgba(62, 39, 35, 0.3);
-    }
-    .gallery-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 40px rgba(204, 85, 0, 0.15);
-      border-color: rgba(204, 85, 0, 0.4);
-    }
-
-    .image-wrapper {
-      position: relative;
-      overflow: hidden;
-      display: block;
-    }
-
-    .gallery-item img {
+    /* Keep contact submit full-width while preserving pill visuals */
+    .contact-form .btn.btn-primary {
       width: 100%;
-      height: auto;
-      display: block;
-      transition: opacity 0.6s ease-in-out;
-    }
-    .gallery-item img.primary {
-      display: block;
-      width: 100%;
-      height: auto;
-      transition: opacity 0.4s ease-in-out;
-    }
-    .gallery-item img.secondary {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0;
-      transition: opacity 0.4s ease-in-out;
-    }
-    
-    .gallery-item:hover .image-wrapper img.primary {
-      opacity: 0;
-    }
-    .gallery-item:hover .image-wrapper img.secondary {
-      opacity: 1;
-    }
-
-    /* Gallery title styles */
-    .gallery-title {
-      color: var(--off-white);
-      font-size: 0.95rem;
-      font-weight: 500;
-      padding: 1rem 1.25rem;
-      text-align: center;
-      line-height: 1.4;
-      min-height: 3.5em;
       display: flex;
-      align-items: center;
       justify-content: center;
-      border-top: 1px solid rgba(62, 39, 35, 0.3);
-      letter-spacing: 0.01em;
     }
 
-    /* Lightbox Modal Styles */
-    #lightbox {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.95);
-      backdrop-filter: blur(5px);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
+    /* Shared hover/focus states to mirror header CTA */
+    .hero .btn.btn-primary:hover,
+    .hero .btn.btn-primary:focus,
+    .hero .btn.btn-primary:focus-visible,
+    .contact-form .btn.btn-primary:hover,
+    .contact-form .btn.btn-primary:focus,
+    .contact-form .btn.btn-primary:focus-visible {
+      text-decoration: none !important;
+      background-image: none !important;
+      transform: translateY(-1px);
+      background: #d35e0a;
+      box-shadow:
+        0 0 0 3px rgba(204,85,0,0.25),
+        0 10px 28px rgba(0,0,0,0.35);
     }
-    .lightbox-content {
-      max-width: 90%;
-      max-height: 90vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-    #lightboxImg {
-      max-width: 100%;
-      max-height: 70vh;
-      display: block;
-      margin: 0 auto 1.5rem auto;
-      border-radius: 10px;
-      border: 2px solid rgba(62, 39, 35, 0.4);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-    }
-    .close-btn {
-      position: absolute;
-      top: -5px;
-      right: 10px;
-      color: var(--off-white);
-      font-size: 36px;
-      font-weight: 300;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      z-index: 1001;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    .close-btn:hover,
-    .close-btn:focus {
-      color: var(--burnt-orange);
-      background: rgba(0, 0, 0, 0.8);
-      transform: scale(1.1);
-    }
-    #lightboxTitle {
-      display: block;
-      color: var(--off-white);
-      font-size: 1.5rem;
-      margin-bottom: 0.75rem;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-    #lightboxCaption {
-      display: block;
-      color: var(--off-white);
-      font-size: 1rem;
-      line-height: 1.5;
-      max-width: 600px;
-      opacity: 0.85;
-      font-weight: 400;
-    }
-
-    /* Modal Overlay */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.9);
-      backdrop-filter: blur(5px);
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-    }
-
-    /* Modal Content Box */
-    .modal-content {
-      background-color: var(--oled-black);
-      padding: 2.5rem 3rem;
-      border-radius: 12px;
-      position: relative;
-      max-width: 500px;
-      color: var(--off-white);
-      box-shadow: 0 8px 32px rgba(204, 85, 0, 0.2);
-      border: 1px solid rgba(62, 39, 35, 0.4);
-    }
-
-    .modal-content h2 {
-      font-size: 1.75rem;
-      font-weight: 500;
-      margin-bottom: 1.25rem;
-      color: var(--off-white);
-      letter-spacing: -0.01em;
-    }
-
-    .modal-content p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: var(--off-white);
-      opacity: 0.85;
-      font-weight: 400;
-    }
-
-    .modal-overlay .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      color: var(--off-white);
-      font-size: 32px;
-      font-weight: 300;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .modal-overlay .close-btn:hover,
-    .modal-overlay .close-btn:focus {
-      color: var(--burnt-orange);
-      background: rgba(255, 255, 255, 0.1);
-      transform: scale(1.1);
-    }
-
-    /* Contact Section Styles */
-    #contact form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-    #contact input[type="text"],
-    #contact input[type="email"],
-    #contact select,
-    #contact textarea {
-      background-color: var(--input-bg);
-      border: 1px solid rgba(62, 39, 35, 0.4);
-      color: var(--input-color);
-      padding: var(--input-padding);
-      border-radius: var(--input-radius);
-      font-size: var(--input-font-size);
-      font-family: 'Inter', sans-serif;
-      font-weight: 400;
-      transition: all 0.3s ease;
-    }
-    #contact input[type="text"]:focus,
-    #contact input[type="email"]:focus,
-    #contact select:focus,
-    #contact textarea:focus {
-      outline: none;
-      border-color: var(--burnt-orange);
-      box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.15);
-      background-color: #222;
-    }
-    #contact input[type="text"]::placeholder,
-    #contact input[type="email"]::placeholder,
-    #contact textarea::placeholder {
-      color: rgba(244, 237, 228, 0.5);
-      font-weight: 400;
-    }
-    #contact textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-    #contact .honeypot-field {
-      display: none;
-    }
-    #contact .btn {
-      align-self: flex-start;
-    }
-    #contact ul {
-      list-style: none;
-      padding-left: 0;
-      text-align: center;
-    }
-    #contact ul li {
-      margin-bottom: 0.75rem;
-    }
-    #contact ul li a {
-      color: var(--off-white);
-      text-decoration: none;
-      transition: all 0.3s ease;
-      opacity: 0.75;
-      font-weight: 500;
-      font-size: 0.95rem;
-    }
-    #contact ul li a:hover {
-      color: var(--burnt-orange);
-      opacity: 1;
-    }
-
-    /* Contact section improvements */
-    #contact > p {
-      text-align: center;
-      font-size: 1.05rem;
-      max-width: 600px;
-      margin: 0 auto 2rem auto;
-    }
-/* Loading Spinner Styles */
-.loading-spinner {
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(244, 237, 228, 0.3);
-  border-radius: 50%;
-  border-top-color: var(--off-white);
-  animation: spin 0.8s linear infinite;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.btn:disabled {
-  opacity: 0.7;
-  cursor: not-allowed;
-  transform: none !important;
-}
-
-.btn:disabled:hover {
-  transform: none !important;
-  box-shadow: 0 4px 15px rgba(204, 85, 0, 0.25) !important;
-}
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
   </style>
 </head>
-<body id="top">
-  <header>
-    <a href="#top" class="site-logo" aria-label="Return to the top of the page">CAMPFIRE AI Studio</a>
-    <div class="hamburger" id="hamburger">
-      <span></span><span></span><span></span>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="#top" class="brand">
+        <span class="brand-emblem">CAMPFIRE</span>
+        <span class="brand-sub">AI STUDIO</span>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#why-ai">Why AI?</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#studio">Studio</a>
+        <a href="#services" class="nav-cta">Start a Project</a>
+      </nav>
     </div>
-    <nav id="navLinks">
-      <a href="#hero">About</a>
-      <a href="#work">Work</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </header>
 
-  <section id="hero" class="hero">
-    <div class="hero-content">
-      <h1>Photorealistic AI imagery for brands, creators, and collectors.</h1>
-      <p>CAMPFIRE AI Studio, led by Andrew Salinas, blends crisp realism with sparks of surreal imagination to help ideas look their best. Founded October 2022.</p>
-      <div class="hero-buttons">
-        <a class="btn" href="#work" aria-label="Start a project by jumping to the work section">Start a Project</a>
-        <a class="btn btn-secondary" href="#portfolio" aria-label="View CAMPFIRE AI Studio's portfolio">View Portfolio</a>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">Story-driven visuals for brands, creators, and collectors.</h1>
+          <p class="lead">CAMPFIRE AI Studio, led by Andrew Salinas, blends crisp realism with sparks of surreal imagination to help ideas look their best. Founded October 2022.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">Start a Project</a>
+            <a class="btn btn-ghost" href="#portfolio">View latest work</a>
+          </div>
+        </div>
+        <div class="hero-gallery" role="presentation">
+          <figure class="hero-card">
+            <img src="campfireai_assets/hero/campfire_ai_studio_titlecard.webp" alt="CAMPFIRE AI Studio title card collage" />
+          </figure>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="work">
-    <h2>Work</h2>
-    <div class="work-grid">
-      <article class="work-card">
-        <div class="work-card-media">
-          <div class="gallery-item autoplay" data-title="Digital Content" data-caption="Looping showcase of campaign-ready AI visuals for brands and agencies.">
-            <div class="image-wrapper">
-              <img class="primary"   src="campfireai_portfolio/work/digital/digital_1.webp" loading="lazy" alt="Digital artwork showcasing a futuristic retail activation">
-              <img class="secondary" src="campfireai_portfolio/work/digital/digital_2.webp" loading="lazy" alt="Digital campaign storyboard with AI-generated visuals">
+    <section id="why-ai" class="why-ai" aria-labelledby="why-title">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Why AI?</p>
+          <h2 id="why-title" class="section-title">AI artistry crafted around your vision</h2>
+        </div>
+        <div class="why-grid">
+          <article class="why-card glass-card">
+            <h3>Speed to story</h3>
+            <p>Move from concept to production-ready visuals with rapid refinement.</p>
+          </article>
+          <article class="why-card glass-card">
+            <h3>Full customization</h3>
+            <p>Advanced prompt systems are utilized to ensure that lighting, styling, and vibe stay true to your brand.</p>
+          </article>
+          <article class="why-card glass-card">
+            <h3>Limitless imagination</h3>
+            <p>Explore surreal, architectural, or editorial directions that would be impossible or cost-prohibitive in traditional shoots.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="portfolio" class="showcase" aria-labelledby="portfolio-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="portfolio-title" class="section-title">Featured worlds</h2>
+          <p class="section-sub">An evolving showcase of visual worlds, each one exploring a distinct facet of realism, imagination, and design.</p>
+        </div>
+          <div class="showcase-grid">
+            <article class="showcase-item">
+              <div class="showcase-media autoplay" data-title="Latent Realism">
+                <img src="campfireai_assets/portfolio/latent_realism/husky_trail_closeup.webp" alt="Husky trail close-up" loading="lazy" />
+                <img src="campfireai_assets/portfolio/latent_realism/airplane_window_sunset_clouds.webp" alt="Airplane window at sunset over clouds" loading="lazy" />
+                <img src="campfireai_assets/portfolio/latent_realism/autumn_mountain_foliage.webp" alt="Autumn mountain foliage" loading="lazy" />
+                <img src="campfireai_assets/portfolio/latent_realism/snowy_modern_house_front.webp" alt="Snowy modern house front" loading="lazy" />
+                <img src="campfireai_assets/portfolio/latent_realism/wheat_field_city_silhouette.webp" alt="Wheat field city silhouette" loading="lazy" />
+                <img src="campfireai_assets/portfolio/latent_realism/quartz_by_stream.webp" alt="Quartz by a stream" loading="lazy" />
+                <img src="campfireai_assets/portfolio/latent_realism/moon_full_detail.webp" alt="Detailed moon" loading="lazy" />
+                <img src="campfireai_assets/portfolio/latent_realism/glowing_crystal_cave.webp" alt="Glowing crystal cave" loading="lazy" />
+              </div>
+              <div class="showcase-overlay">
+                <h3>Latent Realism</h3>
+                <p>Exploring the full spectrum of realism from smartphone snapshots to the crisp precision of high-end lenses.</p>
+              </div>
+            </article>
+
+            <article class="showcase-item">
+              <div class="showcase-media autoplay" data-title="Fashion &amp; Lifestyle">
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/leather_jacket_chair.webp" alt="Leather jacket on chair" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/pearl_necklace_display.webp" alt="Pearl necklace display" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/rooftop_hoodie_group.webp" alt="Rooftop hoodie group" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/yellow_stripe_fashion_portrait.webp" alt="Yellow stripe fashion portrait" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/black_sunglasses_reflection.webp" alt="Black sunglasses reflection" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/tan_belt_gold_buckle.webp" alt="Tan belt with gold buckle" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/charcoal_suit_portrait_front.webp" alt="Charcoal suit portrait front" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/charcoal_suit_portrait_casual.webp" alt="Charcoal suit portrait casual" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/softball_athlete_portrait.webp" alt="Softball athlete portrait" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/summer_print_dress_laughing.webp" alt="Summer print dress laughing" loading="lazy" />
+                <img src="campfireai_assets/portfolio/fashion_lifestyle/summer_print_dress_side.webp" alt="Summer print dress side" loading="lazy" />
+              </div>
+              <div class="showcase-overlay">
+                <h3>Fashion &amp; Lifestyle</h3>
+                <p>Light, pose, and attitude crafted for lookbooks, ads, and socials.</p>
+              </div>
+            </article>
+
+            <article class="showcase-item">
+              <div class="showcase-media autoplay" data-title="Marble Light">
+                <img src="campfireai_assets/portfolio/marble_light/marble_coffee_mug.webp" alt="Marble coffee mug" loading="lazy" />
+                <img src="campfireai_assets/portfolio/marble_light/marble_vase_minimal.webp" alt="Minimal marble vase" loading="lazy" />
+                <img src="campfireai_assets/portfolio/marble_light/marble_bowl_bananas.webp" alt="Marble bowl with bananas" loading="lazy" />
+              </div>
+              <div class="showcase-overlay">
+                <h3>Marble Light</h3>
+                <p>Minimal scenes where texture and shadow take center stage.</p>
+              </div>
+            </article>
+
+            <article class="showcase-item">
+              <div class="showcase-media autoplay" data-title="Lunar Shores">
+                <img src="campfireai_assets/portfolio/lunar_shores/lunar_surf_resort.webp" alt="Lunar surf resort" loading="lazy" />
+                <img src="campfireai_assets/portfolio/lunar_shores/lunar_beach_dome.webp" alt="Lunar beach dome" loading="lazy" />
+                <img src="campfireai_assets/portfolio/lunar_shores/lunar_beach_aerial.webp" alt="Lunar beach aerial" loading="lazy" />
+              </div>
+              <div class="showcase-overlay">
+                <h3>Lunar Shores</h3>
+                <p>Surreal architecture, alien tides, and quiet reflections in impossible light.</p>
+              </div>
+            </article>
+          </div>
+      </div>
+    </section>
+
+    <section id="services" class="services" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="services-title" class="section-title">What we create together</h2>
+          <p class="section-sub">A trio of collaborative offerings designed to meet you where you are.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card glass-card">
+            <div class="service-media">
+              <img class="primary" src="campfireai_assets/services/digital/black_backpack_product.webp" alt="Black backpack product shot" loading="lazy" />
+              <img class="secondary" src="campfireai_assets/services/digital/embers_portrait_warm_glow.webp" alt="Warm portrait with ember glow" loading="lazy" />
+              <img src="campfireai_assets/services/digital/desert_sunset.webp" alt="Desert sunset" loading="lazy" />
             </div>
-            <h3 class="gallery-title sr-only">Digital Content</h3>
-          </div>
-        </div>
-        <div class="work-card-content">
-          <h3>Digital Content</h3>
-          <p class="work-card-description">Campaign-ready images &amp; shortform video.</p>
-          <div class="work-card-actions">
-            <a class="btn" href="?type=digital#contact" aria-label="Start a digital content project via the contact form">Start Digital Project</a>
-          </div>
-        </div>
-      </article>
-      <article class="work-card">
-        <div class="work-card-media">
-          <div class="gallery-item autoplay" data-title="Prints &amp; Commissions" data-caption="Archival-quality AI artworks crafted for collectors and interior designers.">
-            <div class="image-wrapper">
-              <img class="primary"   src="campfireai_portfolio/work/prints/prints_1.webp" loading="lazy" alt="Framed AI art print hanging in a modern living room">
-              <img class="secondary" src="campfireai_portfolio/work/prints/prints_2.webp" loading="lazy" alt="Close-up of textured AI-generated art print">
+            <div class="service-content">
+              <h3>Digital Content</h3>
+              <p>Campaign-ready images &amp; shortform video.</p>
+              <a class="btn btn-secondary" href="#contact" data-project="digital">Start Digital Project</a>
             </div>
-            <h3 class="gallery-title sr-only">Prints &amp; Commissions</h3>
-          </div>
-        </div>
-        <div class="work-card-content">
-          <h3>Prints &amp; Commissions</h3>
-          <p class="work-card-description">From prompt to print, ready to display.</p>
-          <div class="work-card-actions">
-            <a class="btn" href="?type=print#contact" aria-label="Commission a print via the contact form">Commission a Print</a>
-          </div>
-        </div>
-      </article>
-      <article class="work-card">
-        <div class="work-card-media">
-          <div class="gallery-item autoplay" data-title="Generative-AI Consulting" data-caption="Collaborative guidance to build an AI image pipeline that fits your workflow.">
-            <div class="image-wrapper">
-              <img class="primary"   src="campfireai_portfolio/work/consulting/consulting_1.webp" loading="lazy" alt="Creative team collaborating over AI concept sketches">
-              <img class="secondary" src="campfireai_portfolio/work/consulting/consulting_2.webp" loading="lazy" alt="Consultant presenting AI image strategy to clients">
+          </article>
+          <article class="service-card glass-card">
+            <div class="service-media">
+              <img class="primary" src="campfireai_assets/services/prints/unboxing_print_with_tattoo.webp" alt="Unboxing a framed print with tattooed hand" loading="lazy" />
+              <img class="secondary" src="campfireai_assets/services/prints/hanging_large_framed_print.webp" alt="Hanging large framed print" loading="lazy" />
+              <img src="campfireai_assets/services/prints/black_brushstrokes_abstract.webp" alt="Abstract black brushstrokes" loading="lazy" />
             </div>
-            <h3 class="gallery-title sr-only">Generative-AI Consulting</h3>
+            <div class="service-content">
+              <h3>Prints &amp; Commissions</h3>
+              <p>From prompt to print, ready to display.</p>
+              <a class="btn btn-secondary" href="#contact" data-project="print">Commission a Print</a>
+            </div>
+          </article>
+          <article class="service-card glass-card">
+            <div class="service-media">
+              <img class="primary" src="campfireai_assets/services/consulting/campfire_whiteboard_design.webp" alt="Campfire whiteboard design session" loading="lazy" />
+              <img class="secondary" src="campfireai_assets/services/consulting/office_silhouettes.webp" alt="Office silhouettes" loading="lazy" />
+              <img src="campfireai_assets/services/consulting/studio_backlight_scene.webp" alt="Studio backlight scene" loading="lazy" />
+            </div>
+            <div class="service-content">
+              <h3>Generative-AI Consulting</h3>
+              <p>Expert guidance to streamline your creative process.</p>
+              <a class="btn btn-secondary" href="#contact" data-project="consulting">Discuss Consulting</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="process" aria-labelledby="process-title">
+      <div class="container">
+        <div class="section-heading">
+          <h2 id="process-title" class="section-title">A collaborative, human-led process</h2>
+          <p class="section-sub">Start with an idea, end with something you love.</p>
+        </div>
+        <ol class="process-steps">
+          <li class="glass-card">
+            <h3>Discover</h3>
+            <p>Share your vision, brand, vibe, and mood. Clarify style, use, and desired outcome.</p>
+          </li>
+          <li class="glass-card">
+            <h3>Design</h3>
+            <p>The studio creates original images using advanced prompting and the latest generative models.</p>
+          </li>
+          <li class="glass-card">
+            <h3>Deliver</h3>
+            <p>Receive organized, high-quality files for web, social, and print. Everything is shared privately and securely.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="studio" class="studio" aria-labelledby="studio-title">
+      <div class="container studio-inner">
+        <div class="studio-copy">
+          <p class="eyebrow">Meet the studio</p>
+          <h2 id="studio-title" class="section-title">Led by Andrew, shaping crisp realism with subtle imagination.</h2>
+          <p class="section-sub">CAMPFIRE AI Studio, led by Andrew Salinas, blends crisp realism with sparks of surreal imagination to help ideas look their best. Founded October 2022.</p>
+        </div>
+        <div class="studio-portrait">
+          <img src="campfireai_assets/studio/bw_portrait_window_light.webp" alt="Black-and-white portrait by window light of Andrew Salinas" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="container contact-inner">
+        <div class="contact-copy">
+          <h2 id="contact-title" class="section-title">Tell us about your next launch</h2>
+          <p class="section-sub">Ready to visualize your next big idea? Briefly describe your needs below, and we'll connect with you within 24-48 hours.</p>
+          <div class="contact-details">
+            <a href="https://www.instagram.com/campfire.ai/" class="contact-link" target="_blank" rel="noopener">Instagram</a>
+            <a href="https://sora.chatgpt.com/profile/campfire.ai" class="contact-link" target="_blank" rel="noopener">Sora</a>
+            <a href="https://www.tiktok.com/@campfire.ai" class="contact-link" target="_blank" rel="noopener">TikTok</a>
+            <a href="https://x.com/campfireai" class="contact-link" target="_blank" rel="noopener">X (Twitter)</a>
           </div>
         </div>
-        <div class="work-card-content">
-          <h3>Generative-AI Consulting</h3>
-          <p class="work-card-description">Expert guidance to streamline your creative process.</p>
-          <div class="work-card-actions">
-            <a class="btn" href="?type=consulting#contact" aria-label="Discuss consulting via the contact form">Discuss Consulting</a>
+        <form class="contact-form glass-card" aria-label="Project inquiry form">
+          <div class="form-field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" />
           </div>
-        </div>
-      </article>
-    </div>
-  </section>
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <div class="grid">
-    <div class="gallery-item" data-title="Interior & Spatial Design" data-caption="Elevate interior design projects with fully customizable, original imagery. If you can describe it, I can create it.">
-      <div class="image-wrapper">
-        <img class="primary"   loading="lazy" src="campfireai_portfolio/marble_1.jpg"  alt="White marble vase with dry branches">
-        <img class="secondary" loading="lazy" src="campfireai_portfolio/marble_2.jpg"  alt="Minimalist white room with marble accents">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" />
+          </div>
+          <div class="form-field">
+            <label for="project">Project type</label>
+            <select id="project" name="project">
+              <option value="" selected disabled>Select an option</option>
+              <option value="spatial">Digital</option>
+              <option value="campaign">Print</option>
+              <option value="story-kit">Consulting</option>
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="message">Project notes</label>
+            <textarea id="message" name="message" rows="4" placeholder="Share timelines, deliverables, or inspiration references..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Send inquiry</button>
+        </form>
       </div>
-      <h3 class="gallery-title">Interior & Spatial Design</h3>
-    </div>
-    <div class="gallery-item" data-title="Hospitality Storytelling" data-caption="Create immersive guest experiences through compelling AI art that tells your unique story.">
-      <div class="image-wrapper">
-        <img class="primary"   loading="lazy" src="campfireai_portfolio/dream_1.jpg"  alt="Night view of a coastline with city lights">
-        <img class="secondary" loading="lazy" src="campfireai_portfolio/dream_2.jpg"  alt="Cozy cafe interior with a window view">
-      </div>
-      <h3 class="gallery-title">Hospitality Storytelling</h3>
-    </div>
-    <div class="gallery-item" data-title="Culinary Ambience" data-caption="Set the mood with custom AI art that captures the unique essence of your establishment.">
-      <div class="image-wrapper">
-        <img class="primary"   loading="lazy" src="campfireai_portfolio/loved_1.jpg"    alt="Glass of red wine, black and white">
-        <img class="secondary" loading="lazy" src="campfireai_portfolio/loved_2.jpg"    alt="Warmly lit restaurant interior with 'Local Loved' sign">
-      </div>
-      <h3 class="gallery-title">Culinary Ambience</h3>
-    </div>
-    <div class="gallery-item" data-title="Boutique Visuals" data-caption="Add a touch of elegance to your boutique or retail space with visuals designed to complement your environment.">
-      <div class="image-wrapper">
-        <img class="primary"   loading="lazy" src="campfireai_portfolio/bloom_1.jpg"   alt="Single white flower, black and white">
-        <img class="secondary" loading="lazy" src="campfireai_portfolio/bloom_2.jpg"   alt="Framed picture of a plant in an interior setting">
-      </div>
-      <h3 class="gallery-title">Boutique Visuals</h3>
-    </div>
-    <div class="gallery-item" data-title="Retail Advertising" data-caption="Use human or synthetic models to create high-impact visuals tailored to your brand's unique style.">
-      <div class="image-wrapper">
-        <img class="primary"   loading="lazy" src="campfireai_portfolio/bruce_1.jpg"   alt="Portrait of a young man in a grey hoodie">
-        <img class="secondary" loading="lazy" src="campfireai_portfolio/bruce_2.jpg"   alt="Advertising poster featuring the young man">
-      </div>
-      <h3 class="gallery-title">Retail Advertising</h3>
-    </div>
-    <div class="gallery-item" data-title="Artist & Creator Branding" data-caption="Enhance your content with photorealistic images. Perfect for artists, creators, and professionals seeking deeper audience engagement.">
-      <div class="image-wrapper">
-        <img class="primary"   loading="lazy" src="campfireai_portfolio/isla_1.jpg"  alt="Portrait of a young woman with dark hair">
-        <img class="secondary" loading="lazy" src="campfireai_portfolio/isla_2.jpg"  alt="Promotional poster featuring the young woman">
-      </div>
-      <h3 class="gallery-title">Artist & Creator Branding</h3>
-    </div>
-    <div class="gallery-item" data-title="Exploration & Travel Themes" data-caption="Ignite a sense of adventure with cinematic AI imagery. Ideal for outdoor, travel, and lifestyle brands.">
-      <div class="image-wrapper">
-        <img class="primary"   loading="lazy" src="campfireai_portfolio/jungle_1.jpg"   alt="Misty jungle road with a vehicle">
-        <img class="secondary" loading="lazy" src="campfireai_portfolio/jungle_2.jpg"   alt="Rustic interior with travel-themed decor">
-      </div>
-      <h3 class="gallery-title">Exploration & Travel Themes</h3>
-    </div>
-    <div class="gallery-item" data-title="Personal Art Collecting" data-caption="One-of-a-kind pieces created for collectors and enthusiasts who want something deeply personal.">
-      <div class="image-wrapper">
-        <img class="primary"   loading="lazy" src="campfireai_portfolio/jazz_1.jpg"    alt="Abstract jazz music visualization">
-        <img class="secondary" loading="lazy" src="campfireai_portfolio/jazz_2.jpg"    alt="Cozy room with a piano and framed art">
-      </div>
-      <h3 class="gallery-title">Personal Art Collecting</h3>
-    </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <section id="contact">
-    <h2>Start a Project</h2>
-    <p>Ready to visualize your next big idea? Briefly describe your needs below, and I'll connect with you within 24-48 hours.</p>
-    <form action="https://formspree.io/f/xgvkgkdy" method="POST" style="margin-top: 1.5rem;">
-      <label class="sr-only" for="name">Your Name</label>
-      <input type="text" id="name" name="name" placeholder="Your Name" required>
-      <label class="sr-only" for="email">Your Email</label>
-      <input type="email" id="email" name="_replyto" placeholder="Your Email" required>
-      <label class="sr-only" for="projectType">Project Type</label>
-      <select id="projectType" name="project_type" required>
-        <option value="" disabled selected>Select a project type</option>
-        <option value="digital">Digital</option>
-        <option value="print">Print</option>
-        <option value="consulting">Consulting</option>
-        <option value="other">Other</option>
-      </select>
-      <div class="honeypot-field" aria-hidden="true">
-        <label class="sr-only" for="company">Company</label>
-        <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" placeholder="Company">
-      </div>
-      <textarea name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-      <button class="btn" type="submit">Send Message</button>
-    </form>
-    <ul style="margin-top: 2rem;">
-      <li>Instagram: <a href="https://www.instagram.com/campfire.ai/" target="_blank" rel="noopener noreferrer">@campfire.ai</a></li>
-      <li>TikTok: <a href="https://www.tiktok.com/@campfire.ai" target="_blank" rel="noopener noreferrer">@campfire.ai</a></li>
-      <li>X (Twitter): <a href="https://x.com/campfireai" target="_blank" rel="noopener noreferrer">@campfireai</a></li>
-    </ul>
-  </section>
-
-  <!-- Lightbox Modal -->
-  <div id="lightbox">
-    <span class="close-btn" id="lightboxClose" aria-label="Close lightbox">&times;</span>
-    <div class="lightbox-content">
-        <img id="lightboxImg" src="" alt="Enlarged portfolio image">
-        <h3 id="lightboxTitle"></h3>
-        <p id="lightboxCaption"></p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="#top" class="back-to-top">Back to top</a>
     </div>
-  </div>
-
-  <!-- Thank You Modal -->
-  <div id="thankYouModal" class="modal-overlay">
-    <div class="modal-content">
-      <span class="close-btn" id="thankYouClose" aria-label="Close thank you message">&times;</span>
-      <h2>Thank You!</h2>
-      <p>Your message has been sent successfully. I'll get back to you within 24-48 hours.</p>
-    </div>
-  </div>
+  </footer>
 
   <script>
-    // JavaScript for Hamburger Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-open');
-            // Optional: Toggle ARIA attribute for accessibility
-            const isExpanded = navLinks.classList.contains('nav-open');
-            hamburger.setAttribute('aria-expanded', isExpanded);
-        });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const projectTypeMap = {
+      digital: 'spatial',
+      print: 'campaign',
+      consulting: 'story-kit'
+    };
+
+    function applyProjectSelection(typeKey, selectEl) {
+      if (!selectEl) return;
+      const targetValue = projectTypeMap[typeKey];
+      if (targetValue) {
+        selectEl.value = targetValue;
+      }
     }
 
-    const projectTypeSelect = document.getElementById('projectType');
-    if (projectTypeSelect) {
+    function initAutoSlides(selector) {
+      document.querySelectorAll(selector).forEach((media, index) => {
+        const imgs = Array.from(media.querySelectorAll('img'));
+        if (imgs.length === 0) return;
+
+        // Ensure only the first image is visible to start
+        imgs.forEach((img, i) => {
+          img.style.position = i === 0 ? 'relative' : 'absolute';
+          img.style.inset = '0';
+          img.style.width = '100%';
+          img.style.height = '100%';
+          img.style.objectFit = 'cover';
+          img.style.transition = 'opacity 500ms ease-in-out';
+          img.style.opacity = i === 0 ? '1' : '0';
+        });
+
+        if (reduceMotion || imgs.length === 1) return; // no animation
+
+        let i = 0;
+        const startDelay = 250 * index;
+        setTimeout(() => {
+          setInterval(() => {
+            const next = (i + 1) % imgs.length;
+            imgs[i].style.opacity = '0';
+            imgs[next].style.opacity = '1';
+            i = next;
+          }, 5000);
+        }, startDelay);
+      });
+    }
+
+    // Services cards
+    initAutoSlides('.service-card .service-media');
+    // Portfolio showcase
+    initAutoSlides('.showcase-item .showcase-media');
+
+    // --- Preselect contact form project type from URL query (?type=...) ---
+    (function preselectProjectFromQuery() {
+      try {
         const params = new URLSearchParams(window.location.search);
-        const typeParam = params.get('type');
-        if (typeParam) {
-            const normalizedType = typeParam.toLowerCase();
-            const allowedTypes = ['digital', 'print', 'consulting', 'other'];
-            if (allowedTypes.includes(normalizedType)) {
-                projectTypeSelect.value = normalizedType;
-            }
-        }
-    }
+        const type = params.get('type');
+        if (!type) return;
 
-    // JavaScript for Lightbox Functionality
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const lightboxTitle = document.getElementById('lightboxTitle');
-    const lightboxCaption = document.getElementById('lightboxCaption');
-    const lightboxClose = document.getElementById('lightboxClose');
+        // Map query types to the actual option values used in the #project <select>
+        // "Digital" -> value="spatial"
+        // "Print"   -> value="campaign"
+        // "Consulting" -> value="story-kit"
+        const select = document.getElementById('project');
+        if (!select) return;
 
-    if (lightbox && lightboxImg && lightboxTitle && lightboxCaption && lightboxClose) {
-        document.querySelectorAll('.gallery-item').forEach(item => { // Listen on each gallery item
-            item.addEventListener('click', (e) => {
-                // 'item' is the gallery-item div we clicked on (or inside of)
-                const primaryImage = item.querySelector('.image-wrapper img.primary'); // Updated selector
-                const secondaryImage = item.querySelector('.image-wrapper img.secondary'); // Updated selector
-                const title = item.getAttribute('data-title');
-                const caption = item.getAttribute('data-caption');
+        applyProjectSelection(type.toLowerCase(), select);
+      } catch (e) {
+        // fail silently
+      }
+    })();
 
-                lightbox.style.display = 'flex'; // Show the lightbox
+    // --- Sync service CTA buttons to the contact form and URL without reloading ---
+    (function syncServiceButtonsToContact() {
+      const select = document.getElementById('project');
+      const buttons = document.querySelectorAll('.service-card .btn-secondary[data-project]');
+      if (!buttons.length) return;
 
-                // Always use the secondary image for the lightbox.
-                lightboxImg.src = secondaryImage.src;
-                lightboxImg.alt = secondaryImage.alt || "Enlarged portfolio image"; // Use secondary alt text
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const typeKey = (btn.dataset.project || '').toLowerCase();
+          if (!typeKey) return;
 
-                // Set title and caption
-                lightboxTitle.textContent = title || "";
-                lightboxCaption.textContent = caption || "";
-            });
+          applyProjectSelection(typeKey, select);
+
+          try {
+            const url = new URL(window.location.href);
+            url.searchParams.set('type', typeKey);
+            history.replaceState(null, '', `${url.pathname}${url.search}#contact`);
+          } catch (e) {
+            // ignore history issues (e.g., unsupported browsers)
+          }
         });
-
-        // Close lightbox when the close button is clicked
-        lightboxClose.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-        });
-
-        // Close lightbox when clicking outside the content
-        lightbox.addEventListener('click', e => {
-            if (e.target === lightbox) {
-                lightbox.style.display = 'none';
-            }
-        });
-
-        // Close lightbox with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape" && lightbox.style.display === 'flex') {
-                lightbox.style.display = 'none';
-            }
-        });
-    }
-
-    // JavaScript for Thank You Modal & Form Submission
-    const contactForm = document.querySelector('#contact form');
-    const thankYouModal = document.getElementById('thankYouModal');
-    const thankYouClose = document.getElementById('thankYouClose');
-
-    if (contactForm && thankYouModal && thankYouClose) {
-
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault(); // Prevent the default form submission
-
-    const submitButton = contactForm.querySelector('.btn');
-    const originalButtonText = submitButton.textContent;
-    
-    // Show loading state
-    submitButton.disabled = true;
-    submitButton.innerHTML = '<span class="loading-spinner"></span>Sending...';
-
-    const formData = new FormData(contactForm);
-    const action = contactForm.getAttribute('action');
-
-    fetch(action, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
-    }).then(response => {
-        if (response.ok) {
-            contactForm.reset();
-            thankYouModal.style.display = 'flex';
-        } else {
-            response.json().then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                    showErrorMessage(data["errors"].map(error => error["message"]).join(", "));
-                } else {
-                    showErrorMessage('Oops! There was a problem submitting your form. Please try again.');
-                }
-            })
-        }
-    }).catch(error => {
-        showErrorMessage('Oops! There was a network error. Please try again.');
-    }).finally(() => {
-        // Reset button state regardless of success or failure
-        submitButton.disabled = false;
-        submitButton.textContent = originalButtonText;
-    });
-});
-
-// Keep your existing showErrorMessage function here
-function showErrorMessage(message) {
-    const existingError = document.querySelector('.error-message');
-    if (existingError) {
-        existingError.remove();
-    }
-    
-    const errorDiv = document.createElement('div');
-    errorDiv.className = 'error-message';
-    errorDiv.textContent = message;
-    errorDiv.style.cssText = `
-        background-color: #2d1b1b;
-        color: #ff6b6b;
-        padding: 1rem;
-        border-radius: 6px;
-        margin-top: 1rem;
-        border: 1px solid #cc5500;
-        font-size: 0.9rem;
-        animation: fadeIn 0.3s ease-in-out;
-    `;
-    
-    contactForm.parentNode.insertBefore(errorDiv, contactForm.nextSibling);
-    
-    setTimeout(() => {
-        if (errorDiv.parentNode) {
-            errorDiv.remove();
-        }
-    }, 5000);
-}
-// Function to close the Thank You modal
-        function closeThankYouModal() {
-            thankYouModal.style.display = 'none';
-        }
-
-        // Close modal when the close button is clicked
-        thankYouClose.addEventListener('click', closeThankYouModal);
-
-        // Close modal when clicking outside the content
-        thankYouModal.addEventListener('click', (e) => {
-            if (e.target === thankYouModal) {
-                closeThankYouModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape" && thankYouModal.style.display === 'flex') {
-                closeThankYouModal();
-            }
-        });
-    }
-
-    // Auto-fade for marked cards only
-    document.querySelectorAll('.gallery-item.autoplay').forEach((item, idx) => {
-      const primary = item.querySelector('.primary');
-      const secondary = item.querySelector('.secondary');
-      if (!primary || !secondary) return;
-      // Ensure starting state
-      primary.style.opacity = '1';
-      secondary.style.opacity = '0';
-      // Slight stagger so not all flip at once
-      const startDelay = 250 * idx;
-      setTimeout(() => {
-        setInterval(() => {
-          const p = getComputedStyle(primary).opacity === '1';
-          primary.style.opacity = p ? '0' : '1';
-          secondary.style.opacity = p ? '1' : '0';
-        }, 3000); // 3 sec rotation
-      }, startDelay);
-    });
+      });
+    })();
   </script>
 </body>
 </html>
