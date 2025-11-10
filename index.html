@@ -77,129 +77,10 @@
       border-radius: 0; /* already clipped by parent */
     }
 
-    /* ---- Service cards: bottom-center CTA + 3:4 media ---- */
-    .service-card.glass-card {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* Normalize slideshow/media area to 3:4 so cards are similar height */
-    .service-card.glass-card .service-media {
-      aspect-ratio: 3 / 4;
-    }
-    .service-card.glass-card .service-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Let content fill remaining space so CTA can pin to bottom */
-    .service-card.glass-card .service-content {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      flex: 1;
-    }
-
-    /* Bottom-center aligned CTA */
-    .service-card.glass-card .service-content .btn {
-      margin-top: auto;
-      align-self: center;
-    }
-
-    /* --- Overrides to lock media first, content second, and equal heights --- */
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      align-items: stretch;
-    }
-
-    .service-card.glass-card {
-      height: 100%;
-    }
-
-    .service-card.glass-card .service-media {
-      order: 1; /* ensure media is on top */
-    }
-    .service-card.glass-card .service-content {
-      order: 2; /* content below media */
-    }
-
-    /* Keep button centered across different widths */
-    .service-card.glass-card .service-content {
-      align-items: center;
-      text-align: left; /* keep headings/paragraphs left-aligned */
-    }
-    .service-card.glass-card .service-content .btn {
-      align-self: center !important; /* win against external stylesheet */
-    }
-
-    /* Space between cards */
+    /* MOVED TO styles.css: .service-grid glass-card layout overrides */
     .why-grid { gap: 1rem; }
-    .service-grid { gap: 1rem; }
-    .process-steps { gap: 1rem; }
 
-    /* --- Process step badges: prevent clipping and style numbers --- */
-    .process-steps {
-      list-style: none;          /* remove default list numbers */
-      padding-left: 0;           /* align cards with grid */
-      counter-reset: step;       /* custom counter for 1,2,3 */
-      display: grid;             /* keep existing grid behavior */
-      grid-auto-rows: 1fr;       /* equal heights when possible */
-      align-items: stretch;
-      position: relative;        /* anchor the shared timeline */
-    }
-
-    .process-steps::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 1.2rem;                /* height of the timeline line */
-      height: 2px;
-      background: linear-gradient(to right,
-        rgba(255,255,255,0) 0%,
-        rgba(255,255,255,0.18) 12%,
-        rgba(255,255,255,0.18) 88%,
-        rgba(255,255,255,0) 100%);
-    }
-
-    .process-steps li.glass-card {
-      position: relative;        /* anchor the badge */
-      padding-top: 3.25rem;      /* room for timeline + badge */
-      padding-left: 1.25rem;     /* normal inner padding */
-      overflow: hidden;          /* keep rounded corners */
-    }
-
-    .process-steps li.glass-card::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      top: 1.2rem;               /* exactly on the timeline */
-      left: 50%;
-      transform: translate(-50%, -50%); /* center on the line */
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      background: #CC5500;
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.9rem;
-      line-height: 26px;
-      text-align: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    @media (min-width: 900px) {
-      .process-steps li.glass-card { padding-left: 1.5rem; }
-      .process-steps li.glass-card::before {
-        left: 50%;
-        top: 1.2rem;               /* align with timeline */
-        transform: translate(-50%, -50%);
-      }
-    }
+    /* MOVED TO styles.css: .process-steps glass timeline overrides */
 
     /* Contact form as a glass card */
     .contact-inner {
@@ -516,7 +397,7 @@
             <div class="service-content">
               <h3>Digital Content</h3>
               <p>Campaign-ready images &amp; shortform video.</p>
-              <a class="btn btn-secondary" href="?type=digital#contact">Start Digital Project</a>
+              <a class="btn btn-secondary" href="#contact" data-project="digital">Start Digital Project</a>
             </div>
           </article>
           <article class="service-card glass-card">
@@ -528,7 +409,7 @@
             <div class="service-content">
               <h3>Prints &amp; Commissions</h3>
               <p>From prompt to print, ready to display.</p>
-              <a class="btn btn-secondary" href="?type=print#contact">Commission a Print</a>
+              <a class="btn btn-secondary" href="#contact" data-project="print">Commission a Print</a>
             </div>
           </article>
           <article class="service-card glass-card">
@@ -540,7 +421,7 @@
             <div class="service-content">
               <h3>Generative-AI Consulting</h3>
               <p>Expert guidance to streamline your creative process.</p>
-              <a class="btn btn-secondary" href="?type=consulting#contact">Discuss Consulting</a>
+              <a class="btn btn-secondary" href="#contact" data-project="consulting">Discuss Consulting</a>
             </div>
           </article>
         </div>
@@ -632,6 +513,19 @@
 
   <script>
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const projectTypeMap = {
+      digital: 'spatial',
+      print: 'campaign',
+      consulting: 'story-kit'
+    };
+
+    function applyProjectSelection(typeKey, selectEl) {
+      if (!selectEl) return;
+      const targetValue = projectTypeMap[typeKey];
+      if (targetValue) {
+        selectEl.value = targetValue;
+      }
+    }
 
     function initAutoSlides(selector) {
       document.querySelectorAll(selector).forEach((media, index) => {
@@ -680,22 +574,37 @@
         // "Digital" -> value="spatial"
         // "Print"   -> value="campaign"
         // "Consulting" -> value="story-kit"
-        const map = {
-          digital: 'spatial',
-          print: 'campaign',
-          consulting: 'story-kit'
-        };
-
         const select = document.getElementById('project');
         if (!select) return;
 
-        const targetValue = map[type.toLowerCase()];
-        if (targetValue) {
-          select.value = targetValue;
-        }
+        applyProjectSelection(type.toLowerCase(), select);
       } catch (e) {
         // fail silently
       }
+    })();
+
+    // --- Sync service CTA buttons to the contact form and URL without reloading ---
+    (function syncServiceButtonsToContact() {
+      const select = document.getElementById('project');
+      const buttons = document.querySelectorAll('.service-card .btn-secondary[data-project]');
+      if (!buttons.length) return;
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const typeKey = (btn.dataset.project || '').toLowerCase();
+          if (!typeKey) return;
+
+          applyProjectSelection(typeKey, select);
+
+          try {
+            const url = new URL(window.location.href);
+            url.searchParams.set('type', typeKey);
+            history.replaceState(null, '', `${url.pathname}${url.search}#contact`);
+          } catch (e) {
+            // ignore history issues (e.g., unsupported browsers)
+          }
+        });
+      });
     })();
   </script>
 </body>
