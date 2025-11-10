@@ -49,6 +49,90 @@
       -webkit-backdrop-filter: blur(4px);
     }
 
+    /* Apply glass treatment to specific cards */
+    .why-card.glass-card,
+    .service-card.glass-card,
+    .process-steps li.glass-card {
+      display: block;
+      background: rgba(0, 0, 0, 0.32);
+      border-radius: 16px;
+      padding: 1.25rem;
+      overflow: hidden; /* ensures rounded media corners */
+    }
+    @media (min-width: 900px) {
+      .why-card.glass-card,
+      .service-card.glass-card,
+      .process-steps li.glass-card {
+        background: rgba(0, 0, 0, 0.38);
+        padding: 1.5rem;
+      }
+    }
+    /* Service card media should inherit rounding inside glass */
+    .service-card.glass-card .service-media {
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    .service-card.glass-card .service-media img {
+      border-radius: 0; /* already clipped by parent */
+    }
+
+    /* MOVED TO styles.css: .service-grid glass-card layout overrides */
+    .why-grid { gap: 1rem; }
+
+    /* MOVED TO styles.css: .process-steps glass timeline overrides */
+
+    /* Contact form as a glass card */
+    .contact-inner {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 900px) {
+      .contact-inner {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+      }
+    }
+    .contact-form.glass-card {
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(8px) saturate(110%);
+      -webkit-backdrop-filter: blur(8px) saturate(110%);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+    }
+    @media (min-width: 900px) {
+      .contact-form.glass-card {
+        background: rgba(0, 0, 0, 0.38);
+        padding: 2rem;
+      }
+    }
+    /* Inputs inside the glass form */
+    .contact-form.glass-card .form-field input,
+    .contact-form.glass-card .form-field select,
+    .contact-form.glass-card .form-field textarea {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border-radius: 10px;
+      padding: 0.75rem 0.9rem;
+    }
+    .contact-form.glass-card .form-field input::placeholder,
+    .contact-form.glass-card .form-field textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .contact-form.glass-card .form-field input:focus,
+    .contact-form.glass-card .form-field select:focus,
+    .contact-form.glass-card .form-field textarea:focus {
+      outline: none;
+      border-color: rgba(204, 85, 0, 0.4);
+      box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.18);
+    }
+    .contact-form.glass-card .btn-primary {
+      width: 100%;
+    }
+
     /* --- Nav underline behavior: exclude .nav-cta and give it a unique hover --- */
     .site-header .site-nav a {
       position: relative;
