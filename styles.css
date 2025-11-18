@@ -56,6 +56,26 @@ section {
   padding: clamp(3rem, 8vw, 4.5rem) 0;
 }
 
+.has-scroll-animations .fade-section {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.85s ease, transform 0.85s ease;
+  will-change: opacity, transform;
+}
+
+.has-scroll-animations .fade-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-scroll-animations .fade-section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 .container {
   width: min(100% - 2.5rem, var(--max-width));
   margin-inline: auto;

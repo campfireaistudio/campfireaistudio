@@ -227,6 +227,90 @@
       color: #fff;
     }
 
+    /* Featured worlds grid layout */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Individual cards */
+    .showcase-item {
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    /* Ensure images keep their aspect ratio and fill the card */
+    .showcase-media {
+      position: relative;
+      aspect-ratio: 3 / 4; /* keeps portrait ratio while resizing */
+      overflow: hidden;
+    }
+
+    .showcase-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 2-up layout on small screens */
+    @media (max-width: 768px) {
+      .showcase-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+    }
+
+    /* --- Section sizing & scroll snapping for full-screen feel --- */
+    html,
+    body {
+      height: 100%;
+    }
+
+    main {
+      scroll-snap-type: y proximity; /* gentle snap between sections */
+    }
+
+    section.fade-section {
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      min-height: calc(100vh - 80px); /* account roughly for header height */
+      display: flex;
+      align-items: center;
+    }
+
+    section.fade-section > .container {
+      width: 100%;
+    }
+
+    /* Keep things more fluid on smaller screens */
+    @media (max-width: 900px) {
+      section.fade-section {
+        min-height: auto;
+        display: block;
+      }
+    }
+
+    /* --- Tighten the Services section so it fits more comfortably on desktop --- */
+    @media (min-width: 1024px) {
+      .services .service-grid {
+        gap: 1.5rem;
+      }
+      .services .service-card.glass-card {
+        padding: 1.25rem 1.25rem 1.5rem;
+      }
+      .services .service-media {
+        aspect-ratio: 4 / 5; /* slightly shorter than 3:4 to reduce vertical height */
+        margin-bottom: 0.75rem;
+      }
+      .services .service-content h3 {
+        margin-bottom: 0.4rem;
+      }
+      .services .service-content p {
+        margin-bottom: 0.75rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -243,7 +327,7 @@
         <a href="#process">Process</a>
         <a href="#studio">Studio</a>
         <a
-          href="#services"
+          href="#contact"
           class="nav-cta cta-glow inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white transition-all duration-200 focus-visible:outline-none"
         >Start a Project</a>
       </nav>
@@ -251,7 +335,7 @@
   </header>
 
   <main id="top">
-    <section class="hero" aria-labelledby="hero-title">
+    <section class="hero fade-section" aria-labelledby="hero-title">
       <div class="container hero-inner">
         <div class="hero-copy">
           <h1 id="hero-title">Story-driven visuals for brands, creators, and collectors.</h1>
@@ -259,7 +343,7 @@
           <div class="hero-actions">
             <a
               class="cta-glow inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold text-white transition-all duration-200 focus-visible:outline-none"
-              href="#services"
+              href="#contact"
             >Start a Project</a>
             <a class="btn btn-ghost" href="#portfolio">View latest work</a>
           </div>
@@ -272,7 +356,7 @@
       </div>
     </section>
 
-    <section id="why-ai" class="why-ai" aria-labelledby="why-title">
+    <section id="why-ai" class="why-ai fade-section" aria-labelledby="why-title">
       <div class="container">
         <div class="section-heading">
           <p class="eyebrow">Why AI?</p>
@@ -295,7 +379,7 @@
       </div>
     </section>
 
-    <section id="portfolio" class="showcase" aria-labelledby="portfolio-title">
+    <section id="portfolio" class="showcase fade-section" aria-labelledby="portfolio-title">
       <div class="container">
         <div class="section-heading">
           <h2 id="portfolio-title" class="section-title">Featured worlds</h2>
@@ -366,7 +450,7 @@
       </div>
     </section>
 
-    <section id="services" class="services" aria-labelledby="services-title">
+    <section id="services" class="services fade-section" aria-labelledby="services-title">
       <div class="container">
         <div class="section-heading">
           <h2 id="services-title" class="section-title">What we create together</h2>
@@ -413,7 +497,7 @@
       </div>
     </section>
 
-    <section id="process" class="process" aria-labelledby="process-title">
+    <section id="process" class="process fade-section" aria-labelledby="process-title">
       <div class="container">
         <div class="section-heading">
           <h2 id="process-title" class="section-title">A collaborative, human-led process</h2>
@@ -436,7 +520,7 @@
       </div>
     </section>
 
-    <section id="studio" class="studio" aria-labelledby="studio-title">
+    <section id="studio" class="studio fade-section" aria-labelledby="studio-title">
       <div class="container studio-inner">
         <div class="studio-copy">
           <p class="eyebrow">Meet the studio</p>
@@ -449,7 +533,7 @@
       </div>
     </section>
 
-    <section id="contact" class="contact" aria-labelledby="contact-title">
+    <section id="contact" class="contact fade-section" aria-labelledby="contact-title">
       <div class="container contact-inner">
         <div class="contact-copy">
           <h2 id="contact-title" class="section-title">Tell us about your next launch</h2>
@@ -595,6 +679,32 @@
           }
         });
       });
+    })();
+
+    // --- Fade sections into view on scroll ---
+    (function initSectionFadeIns() {
+      const sections = document.querySelectorAll('section.fade-section');
+      if (!sections.length) return;
+
+      if (reduceMotion) {
+        sections.forEach((section) => section.classList.add('is-visible'));
+        return;
+      }
+
+      document.body.classList.add('has-scroll-animations');
+
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.18, rootMargin: '0px 0px -10% 0px' }
+      );
+
+      sections.forEach((section) => observer.observe(section));
     })();
   </script>
 </body>
