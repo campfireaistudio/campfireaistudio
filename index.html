@@ -1,711 +1,647 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAMPFIRE AI Studio · Story-Driven AI Visuals</title>
-  <meta
-    name="description"
-    content="CAMPFIRE AI Studio delivers story-driven AI imagery, brand strategy, and art direction for hospitality, retail, and lifestyle brands seeking surreal-yet-real visuals."
-  />
+  <title>CAMPFIRE AI Studio · Reality, Reimagined.</title>
+  <meta name="description" content="CAMPFIRE AI Studio delivers story-driven AI imagery, brand strategy, and art direction for hospitality, retail, and lifestyle brands." />
   <meta name="author" content="Andrew Salinas" />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://campfireaistudio.com" />
-  <meta property="og:locale" content="en_US" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="CAMPFIRE AI Studio" />
-  <meta property="og:title" content="CAMPFIRE AI Studio · Story-Driven AI Visuals" />
-  <meta
-    property="og:description"
-    content="Story-driven AI imagery and brand art direction crafted by CAMPFIRE AI Studio for hospitality, retail, and lifestyle storytellers."
-  />
-  <meta property="og:url" content="https://campfireaistudio.com" />
-  <meta
-    property="og:image"
-    content="https://campfireaistudio.com/campfireai_assets/hero/campfire_ai_studio_titlecard.webp"
-  />
-  <meta property="og:image:type" content="image/webp" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1080" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CAMPFIRE AI Studio · Story-Driven AI Visuals" />
-  <meta
-    name="twitter:description"
-    content="CAMPFIRE AI Studio blends storytelling, strategy, and AI artistry to build immersive visuals for hospitality, retail, and lifestyle brands."
-  />
-  <meta name="twitter:image" content="https://campfireaistudio.com/campfireai_assets/hero/campfire_ai_studio_titlecard.webp" />
-  <meta name="twitter:image:alt" content="Collage of surreal AI-generated visuals by CAMPFIRE AI Studio" />
-  <link rel="icon" type="image/png" href="campfireai_portfolio/favicon_1.png" />
-  <link rel="apple-touch-icon" href="campfireai_portfolio/apple_touch_icon_1.jpg" />
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css" />
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "CAMPFIRE AI Studio",
-      "url": "https://campfireaistudio.com",
-      "description": "Story-driven AI imagery, brand strategy, and art direction for hospitality, retail, and lifestyle brands.",
-      "founder": {
-        "@type": "Person",
-        "name": "Andrew Salinas"
-      },
-      "image": "https://campfireaistudio.com/campfireai_assets/hero/campfire_ai_studio_titlecard.webp",
-      "areaServed": "Global",
-      "serviceType": [
-        "AI art direction",
-        "Brand storytelling visuals",
-        "Hospitality and retail creative production"
-      ]
+  
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            campfire: {
+              orange: '#cc5500',
+              glow: '#ff7a26',
+              dark: '#050505',
+              charcoal: '#0f0f0f',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          animation: {
+            'fade-in': 'fadeIn 1s ease-out forwards',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          }
+        }
+      }
     }
   </script>
+
   <style>
-    /* Site-wide background images for desktop vs. mobile */
+    /* Global Styles */
     body {
+      background-color: #050505;
+      color: #f4ede4;
+      overflow-x: hidden;
+    }
+
+    /* Fixed Background Image */
+    .fixed-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
       background-image: url('campfireai_assets/backgrounds/campfire_landscape.webp');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
       background-repeat: no-repeat;
     }
+    
+    /* Mobile Background Adjustment */
     @media (max-width: 768px) {
-      body {
+      .fixed-bg {
         background-image: url('campfireai_assets/backgrounds/campfire_portrait.webp');
-        background-attachment: scroll;
       }
     }
-    /* Ensure content panels remain readable on top of bg */
-    .site-header, section, .site-footer {
-      background: rgba(0,0,0,0.78);
-      backdrop-filter: blur(6px);
-    }
-    .hero { background: transparent; }
 
-    /* Gentle glass gradient so the campfire bg peeks through */
-    .why-ai,
-    .services {
-      background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.6) 0%,
-        rgba(0,0,0,0.28) 18%,
-        rgba(0,0,0,0.22) 50%,
-        rgba(0,0,0,0.28) 82%,
-        rgba(0,0,0,0.6) 100%
-      );
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
+    /* Unified Section Blur Style - Applied to all main sections including Hero */
+    .section-blur {
+      background: rgba(5, 5, 5, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
     }
 
-    /* Apply glass treatment to specific cards */
-    .why-card.glass-card,
-    .service-card.glass-card,
-    .process-steps li.glass-card {
-      display: block;
-      background: rgba(0, 0, 0, 0.32);
-      border-radius: 16px;
-      padding: 1.25rem;
-      overflow: hidden; /* ensures rounded media corners */
-    }
-    @media (min-width: 900px) {
-      .why-card.glass-card,
-      .service-card.glass-card,
-      .process-steps li.glass-card {
-        background: rgba(0, 0, 0, 0.38);
-        padding: 1.5rem;
-      }
-    }
-    /* Service card media should inherit rounding inside glass */
-    .service-card.glass-card .service-media {
-      border-radius: 12px;
-      overflow: hidden;
-      margin-bottom: 1rem;
-    }
-    .service-card.glass-card .service-media img {
-      border-radius: 0; /* already clipped by parent */
-    }
-
-    /* MOVED TO styles.css: .service-grid glass-card layout overrides */
-    .why-grid { gap: 1rem; }
-
-    /* MOVED TO styles.css: .process-steps glass timeline overrides */
-
-    /* Contact form as a glass card */
-    .contact-inner {
-      display: grid;
-      gap: 1.5rem;
-    }
-    @media (min-width: 900px) {
-      .contact-inner {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-      }
-    }
-    .contact-form.glass-card {
-      background: rgba(0, 0, 0, 0.32);
+    /* Glassmorphism for Cards (Frost Effect) */
+    .glass-frost {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 1.5rem;
-      backdrop-filter: blur(8px) saturate(110%);
-      -webkit-backdrop-filter: blur(8px) saturate(110%);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
-    }
-    @media (min-width: 900px) {
-      .contact-form.glass-card {
-        background: rgba(0, 0, 0, 0.38);
-        padding: 2rem;
-      }
-    }
-    /* Inputs inside the glass form */
-    .contact-form.glass-card .form-field input,
-    .contact-form.glass-card .form-field select,
-    .contact-form.glass-card .form-field textarea {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #fff;
-      border-radius: 10px;
-      padding: 0.75rem 0.9rem;
-    }
-    .contact-form.glass-card .form-field input::placeholder,
-    .contact-form.glass-card .form-field textarea::placeholder {
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .contact-form.glass-card .form-field input:focus,
-    .contact-form.glass-card .form-field select:focus,
-    .contact-form.glass-card .form-field textarea:focus {
-      outline: none;
-      border-color: rgba(204, 85, 0, 0.4);
-      box-shadow: 0 0 0 3px rgba(204, 85, 0, 0.18);
-    }
-    /* --- Nav underline behavior: exclude .nav-cta and give it a unique hover --- */
-    .site-header .site-nav a {
-      position: relative;
-      text-decoration: none; /* base reset so we control underline */
     }
 
-    /* Underline appears on hover/focus for regular nav links only (not the pill) */
-    .site-header .site-nav a:not(.nav-cta)::after {
-      content: "";
+    /* Navbar Glass */
+    .glass-nav {
+      background: rgba(5, 5, 5, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Slideshow Transitions */
+    .slideshow-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .slideshow-img {
       position: absolute;
+      top: 0;
       left: 0;
-      right: 0;
-      bottom: -2px;
-      height: 2px;
-      background: currentColor;
-      opacity: 0;
-      transform: translateY(3px);
-      transition: opacity 160ms ease, transform 160ms ease;
-    }
-
-    .site-header .site-nav a:not(.nav-cta):hover::after,
-    .site-header .site-nav a:not(.nav-cta):focus-visible::after {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Hard kill any pseudo-underline that might be injected globally */
-    .site-header .site-nav .nav-cta::after {
-      content: none !important;
-      display: none !important;
-      background: none !important;
-      height: 0 !important;
-    }
-
-    /* Ensure the pill CTA never shows an underline (override any global link underline/gradient) */
-    .site-header .site-nav .nav-cta,
-    .site-header .site-nav .nav-cta:hover,
-    .site-header .site-nav .nav-cta:focus,
-    .site-header .site-nav .nav-cta:focus-visible,
-    .site-header .site-nav .nav-cta:active {
-      text-decoration: none !important;
-      border-bottom: 0 !important;       /* guard against border-based underlines */
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-    }
-
-    /* Featured worlds grid layout */
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-
-    /* Individual cards */
-    .showcase-item {
-      border-radius: 18px;
-      overflow: hidden;
-    }
-
-    /* Ensure images keep their aspect ratio and fill the card */
-    .showcase-media {
-      position: relative;
-      aspect-ratio: 3 / 4; /* keeps portrait ratio while resizing */
-      overflow: hidden;
-    }
-
-    .showcase-media img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      transition: opacity 1.5s ease-in-out;
+      opacity: 0;
+    }
+    .slideshow-img.active {
+      opacity: 1;
     }
 
-    /* 2-up layout on small screens */
-    @media (max-width: 768px) {
-      .showcase-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 1rem;
-      }
+    /* Scroll Reveal Animation */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Delays */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    /* Services Mobile Swipe Logic */
+    .snap-x-mandatory {
+      scroll-snap-type: x mandatory;
+    }
+    .snap-center {
+      scroll-snap-align: center;
+    }
+    
+    /* Hide scrollbar for horizontal scroll areas */
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
 
-    /* --- Section sizing & scroll snapping for full-screen feel --- */
-    html,
-    body {
-      height: 100%;
-    }
-
-    main {
-      scroll-snap-type: y proximity; /* gentle snap between sections */
-    }
-
-    section.fade-section {
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-      min-height: calc(100vh - 80px); /* account roughly for header height */
-      display: flex;
-      align-items: center;
-    }
-
-    section.fade-section > .container {
-      width: 100%;
-    }
-
-    /* Keep things more fluid on smaller screens */
-    @media (max-width: 900px) {
-      section.fade-section {
-        min-height: auto;
-        display: block;
-      }
-    }
-
-    /* --- Tighten the Services section so it fits more comfortably on desktop --- */
-    @media (min-width: 1024px) {
-      .services .service-grid {
-        gap: 1.5rem;
-      }
-      .services .service-card.glass-card {
-        padding: 1.25rem 1.25rem 1.5rem;
-      }
-      .services .service-media {
-        aspect-ratio: 4 / 5; /* slightly shorter than 3:4 to reduce vertical height */
-        margin-bottom: 0.75rem;
-      }
-      .services .service-content h3 {
-        margin-bottom: 0.4rem;
-      }
-      .services .service-content p {
-        margin-bottom: 0.75rem;
-      }
+    ::selection {
+      background: #cc5500;
+      color: white;
     }
   </style>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <a href="#top" class="brand">
-        <span class="brand-emblem">CAMPFIRE</span>
-        <span class="brand-sub">AI STUDIO</span>
+<body class="antialiased selection:bg-campfire-orange selection:text-white">
+
+  <!-- Fixed Background -->
+  <div class="fixed-bg"></div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="#top" class="group flex flex-col items-start z-50">
+        <span class="font-bold text-xl tracking-widest group-hover:text-campfire-orange transition-colors duration-300">CAMPFIRE</span>
+        <span class="text-[0.65rem] uppercase tracking-[0.3em] text-gray-400 group-hover:text-white transition-colors duration-300">AI Studio</span>
       </a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="#why-ai">Why AI?</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#studio">Studio</a>
-        <a
-          href="#contact"
-          class="nav-cta cta-glow inline-flex items-center justify-center rounded-full px-4 py-2 text-sm font-semibold text-white transition-all duration-200 focus-visible:outline-none"
-        >Start a Project</a>
-      </nav>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+        <a href="#why-ai" class="hover:text-campfire-orange transition-colors text-gray-200">Why AI?</a>
+        <a href="#portfolio" class="hover:text-campfire-orange transition-colors text-gray-200">Portfolio</a>
+        <a href="#services" class="hover:text-campfire-orange transition-colors text-gray-200">Services</a>
+        <a href="#process" class="hover:text-campfire-orange transition-colors text-gray-200">Process</a>
+        <a href="#studio" class="hover:text-campfire-orange transition-colors text-gray-200">Studio</a>
+        <a href="#contact" class="px-6 py-2.5 rounded-full border border-white/20 hover:border-campfire-orange hover:bg-campfire-orange hover:text-white transition-all duration-300 ease-out text-white">
+          Start Project
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none z-50">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-campfire-dark/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 text-2xl font-serif italic">
+      <a href="#why-ai" class="hover:text-campfire-orange mobile-link">Why AI?</a>
+      <a href="#portfolio" class="hover:text-campfire-orange mobile-link">Portfolio</a>
+      <a href="#services" class="hover:text-campfire-orange mobile-link">Services</a>
+      <a href="#process" class="hover:text-campfire-orange mobile-link">Process</a>
+      <a href="#studio" class="hover:text-campfire-orange mobile-link">Studio</a>
+      <a href="#contact" class="text-lg font-sans not-italic mt-8 px-8 py-3 border border-campfire-orange text-campfire-orange rounded-full">Start Project</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="top" class="relative h-screen w-full flex items-center justify-center overflow-hidden section-blur">
+    <!-- Text Container -->
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto mt-12">
+      <p class="reveal-on-scroll font-sans text-campfire-orange uppercase tracking-[0.25em] text-sm mb-6 font-semibold">Est. 2022</p>
+      <h1 class="reveal-on-scroll delay-100 font-serif text-5xl md:text-7xl lg:text-8xl leading-tight text-white mb-8">
+        Reality, <br />
+        <span class="italic text-white/90">Reimagined.</span>
+      </h1>
+      <p class="reveal-on-scroll delay-200 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed mb-10 font-light drop-shadow-lg">
+        CAMPFIRE AI Studio blends crisp realism with sparks of surreal imagination to create story-driven imagery for brands, creators, and collectors.
+      </p>
+      <div class="reveal-on-scroll delay-300 flex flex-col md:flex-row gap-4 justify-center">
+        <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-campfire-orange to-orange-600 rounded-full text-white font-medium hover:shadow-[0_0_30px_-5px_rgba(204,85,0,0.6)] transition-all duration-300 transform hover:-translate-y-1">
+          Start a Project
+        </a>
+        <a href="#portfolio" class="px-8 py-4 glass-frost rounded-full text-white font-medium hover:bg-white/10 transition-all duration-300">
+          View Featured Worlds
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+      <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
     </div>
   </header>
 
-  <main id="top">
-    <section class="hero fade-section" aria-labelledby="hero-title">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1 id="hero-title">Story-driven visuals for brands, creators, and collectors.</h1>
-          <p class="lead">CAMPFIRE AI Studio, led by Andrew Salinas, blends crisp realism with sparks of surreal imagination to help ideas look their best. Founded October 2022.</p>
-          <div class="hero-actions">
-            <a
-              class="cta-glow inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold text-white transition-all duration-200 focus-visible:outline-none"
-              href="#contact"
-            >Start a Project</a>
-            <a class="btn btn-ghost" href="#portfolio">View latest work</a>
+  <!-- Why AI Section -->
+  <section id="why-ai" class="py-24 md:py-32 section-blur border-t border-white/5">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-on-scroll">
+        <div class="max-w-xl">
+          <p class="text-campfire-orange uppercase tracking-widest text-xs font-bold mb-3">Why AI?</p>
+          <h2 class="font-serif text-4xl md:text-5xl text-white mb-4">AI artistry crafted around your vision</h2>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <article class="reveal-on-scroll delay-100 glass-frost p-8 rounded-2xl hover:border-campfire-orange/40 transition-colors duration-300 group">
+          <h3 class="text-xl font-serif text-white mb-3 group-hover:text-campfire-orange transition-colors">Speed to Story</h3>
+          <p class="text-gray-300 font-light leading-relaxed">Move from concept to production-ready visuals with rapid refinement.</p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="reveal-on-scroll delay-200 glass-frost p-8 rounded-2xl hover:border-campfire-orange/40 transition-colors duration-300 group">
+          <h3 class="text-xl font-serif text-white mb-3 group-hover:text-campfire-orange transition-colors">Full Customization</h3>
+          <p class="text-gray-300 font-light leading-relaxed">Advanced prompt systems are utilized to ensure that lighting, styling, and vibe stay true to your brand.</p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="reveal-on-scroll delay-300 glass-frost p-8 rounded-2xl hover:border-campfire-orange/40 transition-colors duration-300 group">
+          <h3 class="text-xl font-serif text-white mb-3 group-hover:text-campfire-orange transition-colors">Limitless Imagination</h3>
+          <p class="text-gray-300 font-light leading-relaxed">Explore surreal, architectural, or editorial directions that would be impossible or cost-prohibitive in traditional shoots.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="py-24 section-blur border-t border-white/5">
+    <div class="container mx-auto px-6">
+      <div class="mb-16 text-left reveal-on-scroll">
+        <h2 class="font-serif text-4xl md:text-5xl text-white mb-4">Featured Worlds</h2>
+        <p class="text-gray-400 max-w-2xl text-lg">An evolving showcase of visual worlds, each one exploring a distinct facet of realism, imagination, and design.</p>
+      </div>
+
+      <!-- 2x2 Mobile, 4 Across Desktop -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+        
+        <!-- Item 1: Latent Realism -->
+        <div class="reveal-on-scroll group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer">
+          <div class="slideshow-container" data-slideshow>
+            <img src="campfireai_assets/portfolio/latent_realism/husky_trail_closeup.webp" class="slideshow-img active" loading="lazy">
+            <img src="campfireai_assets/portfolio/latent_realism/airplane_window_sunset_clouds.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/latent_realism/autumn_mountain_foliage.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/latent_realism/snowy_modern_house_front.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/latent_realism/wheat_field_city_silhouette.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/latent_realism/quartz_by_stream.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/latent_realism/moon_full_detail.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/latent_realism/glowing_crystal_cave.webp" class="slideshow-img" loading="lazy">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
+            <h3 class="text-white font-serif text-lg md:text-xl">Latent Realism</h3>
+            <p class="text-gray-400 text-xs mt-1">Exploring the spectrum of realism.</p>
           </div>
         </div>
-        <div class="hero-gallery" role="presentation">
-          <figure class="hero-card">
-            <img src="campfireai_assets/hero/campfire_ai_studio_titlecard.webp" alt="CAMPFIRE AI Studio title card collage" />
-          </figure>
-        </div>
-      </div>
-    </section>
 
-    <section id="why-ai" class="why-ai fade-section" aria-labelledby="why-title">
-      <div class="container">
-        <div class="section-heading">
-          <p class="eyebrow">Why AI?</p>
-          <h2 id="why-title" class="section-title">AI artistry crafted around your vision</h2>
-        </div>
-        <div class="why-grid">
-          <article class="why-card glass-card">
-            <h3>Speed to story</h3>
-            <p>Move from concept to production-ready visuals with rapid refinement.</p>
-          </article>
-          <article class="why-card glass-card">
-            <h3>Full customization</h3>
-            <p>Advanced prompt systems are utilized to ensure that lighting, styling, and vibe stay true to your brand.</p>
-          </article>
-          <article class="why-card glass-card">
-            <h3>Limitless imagination</h3>
-            <p>Explore surreal, architectural, or editorial directions that would be impossible or cost-prohibitive in traditional shoots.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="portfolio" class="showcase fade-section" aria-labelledby="portfolio-title">
-      <div class="container">
-        <div class="section-heading">
-          <h2 id="portfolio-title" class="section-title">Featured worlds</h2>
-          <p class="section-sub">An evolving showcase of visual worlds, each one exploring a distinct facet of realism, imagination, and design.</p>
-        </div>
-          <div class="showcase-grid">
-            <article class="showcase-item">
-              <div class="showcase-media autoplay" data-title="Latent Realism">
-                <img src="campfireai_assets/portfolio/latent_realism/husky_trail_closeup.webp" alt="Husky trail close-up" loading="lazy" />
-                <img src="campfireai_assets/portfolio/latent_realism/airplane_window_sunset_clouds.webp" alt="Airplane window at sunset over clouds" loading="lazy" />
-                <img src="campfireai_assets/portfolio/latent_realism/autumn_mountain_foliage.webp" alt="Autumn mountain foliage" loading="lazy" />
-                <img src="campfireai_assets/portfolio/latent_realism/snowy_modern_house_front.webp" alt="Snowy modern house front" loading="lazy" />
-                <img src="campfireai_assets/portfolio/latent_realism/wheat_field_city_silhouette.webp" alt="Wheat field city silhouette" loading="lazy" />
-                <img src="campfireai_assets/portfolio/latent_realism/quartz_by_stream.webp" alt="Quartz by a stream" loading="lazy" />
-                <img src="campfireai_assets/portfolio/latent_realism/moon_full_detail.webp" alt="Detailed moon" loading="lazy" />
-                <img src="campfireai_assets/portfolio/latent_realism/glowing_crystal_cave.webp" alt="Glowing crystal cave" loading="lazy" />
-              </div>
-              <div class="showcase-overlay">
-                <h3>Latent Realism</h3>
-                <p>Exploring the full spectrum of realism from smartphone snapshots to the crisp precision of high-end lenses.</p>
-              </div>
-            </article>
-
-            <article class="showcase-item">
-              <div class="showcase-media autoplay" data-title="Fashion &amp; Lifestyle">
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/leather_jacket_chair.webp" alt="Leather jacket on chair" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/pearl_necklace_display.webp" alt="Pearl necklace display" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/rooftop_hoodie_group.webp" alt="Rooftop hoodie group" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/yellow_stripe_fashion_portrait.webp" alt="Yellow stripe fashion portrait" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/black_sunglasses_reflection.webp" alt="Black sunglasses reflection" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/tan_belt_gold_buckle.webp" alt="Tan belt with gold buckle" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/charcoal_suit_portrait_front.webp" alt="Charcoal suit portrait front" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/charcoal_suit_portrait_casual.webp" alt="Charcoal suit portrait casual" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/softball_athlete_portrait.webp" alt="Softball athlete portrait" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/summer_print_dress_laughing.webp" alt="Summer print dress laughing" loading="lazy" />
-                <img src="campfireai_assets/portfolio/fashion_lifestyle/summer_print_dress_side.webp" alt="Summer print dress side" loading="lazy" />
-              </div>
-              <div class="showcase-overlay">
-                <h3>Fashion &amp; Lifestyle</h3>
-                <p>Light, pose, and attitude crafted for lookbooks, ads, and socials.</p>
-              </div>
-            </article>
-
-            <article class="showcase-item">
-              <div class="showcase-media autoplay" data-title="Marble Light">
-                <img src="campfireai_assets/portfolio/marble_light/marble_coffee_mug.webp" alt="Marble coffee mug" loading="lazy" />
-                <img src="campfireai_assets/portfolio/marble_light/marble_vase_minimal.webp" alt="Minimal marble vase" loading="lazy" />
-                <img src="campfireai_assets/portfolio/marble_light/marble_bowl_bananas.webp" alt="Marble bowl with bananas" loading="lazy" />
-              </div>
-              <div class="showcase-overlay">
-                <h3>Marble Light</h3>
-                <p>Minimal scenes where texture and shadow take center stage.</p>
-              </div>
-            </article>
-
-            <article class="showcase-item">
-              <div class="showcase-media autoplay" data-title="Lunar Shores">
-                <img src="campfireai_assets/portfolio/lunar_shores/lunar_surf_resort.webp" alt="Lunar surf resort" loading="lazy" />
-                <img src="campfireai_assets/portfolio/lunar_shores/lunar_beach_dome.webp" alt="Lunar beach dome" loading="lazy" />
-                <img src="campfireai_assets/portfolio/lunar_shores/lunar_beach_aerial.webp" alt="Lunar beach aerial" loading="lazy" />
-              </div>
-              <div class="showcase-overlay">
-                <h3>Lunar Shores</h3>
-                <p>Surreal architecture, alien tides, and quiet reflections in impossible light.</p>
-              </div>
-            </article>
+        <!-- Item 2: Fashion & Lifestyle -->
+        <div class="reveal-on-scroll delay-100 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer">
+           <div class="slideshow-container" data-slideshow>
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/leather_jacket_chair.webp" class="slideshow-img active" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/pearl_necklace_display.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/rooftop_hoodie_group.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/yellow_stripe_fashion_portrait.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/black_sunglasses_reflection.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/tan_belt_gold_buckle.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/charcoal_suit_portrait_front.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/charcoal_suit_portrait_casual.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/softball_athlete_portrait.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/summer_print_dress_laughing.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/fashion_lifestyle/summer_print_dress_side.webp" class="slideshow-img" loading="lazy">
           </div>
-      </div>
-    </section>
-
-    <section id="services" class="services fade-section" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-heading">
-          <h2 id="services-title" class="section-title">What we create together</h2>
-          <p class="section-sub">A trio of collaborative offerings designed to meet you where you are.</p>
-        </div>
-        <div class="service-grid">
-          <article class="service-card glass-card">
-            <div class="service-media">
-              <img class="primary" src="campfireai_assets/services/digital/black_backpack_product.webp" alt="Black backpack product shot" loading="lazy" />
-              <img class="secondary" src="campfireai_assets/services/digital/embers_portrait_warm_glow.webp" alt="Warm portrait with ember glow" loading="lazy" />
-              <img src="campfireai_assets/services/digital/desert_sunset.webp" alt="Desert sunset" loading="lazy" />
-            </div>
-            <div class="service-content">
-              <h3>Digital Content</h3>
-              <p>Campaign-ready images &amp; shortform video.</p>
-              <a class="btn service-cta cta-glow" href="#contact" data-project="digital">Start Digital Project</a>
-            </div>
-          </article>
-          <article class="service-card glass-card">
-            <div class="service-media">
-              <img class="primary" src="campfireai_assets/services/prints/unboxing_print_with_tattoo.webp" alt="Unboxing a framed print with tattooed hand" loading="lazy" />
-              <img class="secondary" src="campfireai_assets/services/prints/hanging_large_framed_print.webp" alt="Hanging large framed print" loading="lazy" />
-              <img src="campfireai_assets/services/prints/black_brushstrokes_abstract.webp" alt="Abstract black brushstrokes" loading="lazy" />
-            </div>
-            <div class="service-content">
-              <h3>Prints &amp; Commissions</h3>
-              <p>From prompt to print, ready to display.</p>
-              <a class="btn service-cta cta-glow" href="#contact" data-project="print">Commission a Print</a>
-            </div>
-          </article>
-          <article class="service-card glass-card">
-            <div class="service-media">
-              <img class="primary" src="campfireai_assets/services/consulting/campfire_whiteboard_design.webp" alt="Campfire whiteboard design session" loading="lazy" />
-              <img class="secondary" src="campfireai_assets/services/consulting/office_silhouettes.webp" alt="Office silhouettes" loading="lazy" />
-              <img src="campfireai_assets/services/consulting/studio_backlight_scene.webp" alt="Studio backlight scene" loading="lazy" />
-            </div>
-            <div class="service-content">
-              <h3>Generative-AI Consulting</h3>
-              <p>Expert guidance to streamline your creative process.</p>
-              <a class="btn service-cta cta-glow" href="#contact" data-project="consulting">Discuss Consulting</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="process" class="process fade-section" aria-labelledby="process-title">
-      <div class="container">
-        <div class="section-heading">
-          <h2 id="process-title" class="section-title">A collaborative, human-led process</h2>
-          <p class="section-sub">Start with an idea, end with something you love.</p>
-        </div>
-        <ol class="process-steps">
-          <li class="glass-card">
-            <h3>Discover</h3>
-            <p>Share your vision, brand, vibe, and mood. Clarify style, use, and desired outcome.</p>
-          </li>
-          <li class="glass-card">
-            <h3>Design</h3>
-            <p>The studio creates original images using advanced prompting and the latest generative models.</p>
-          </li>
-          <li class="glass-card">
-            <h3>Deliver</h3>
-            <p>Receive organized, high-quality files for web, social, and print. Everything is shared privately and securely.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section id="studio" class="studio fade-section" aria-labelledby="studio-title">
-      <div class="container studio-inner">
-        <div class="studio-copy">
-          <p class="eyebrow">Meet the studio</p>
-          <h2 id="studio-title" class="section-title">Led by Andrew, shaping crisp realism with subtle imagination.</h2>
-          <p class="section-sub">CAMPFIRE AI Studio, led by Andrew Salinas, blends crisp realism with sparks of surreal imagination to help ideas look their best. Founded October 2022.</p>
-        </div>
-        <div class="studio-portrait">
-          <img src="campfireai_assets/studio/bw_portrait_window_light.webp" alt="Black-and-white portrait by window light of Andrew Salinas" loading="lazy" />
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="contact fade-section" aria-labelledby="contact-title">
-      <div class="container contact-inner">
-        <div class="contact-copy">
-          <h2 id="contact-title" class="section-title">Tell us about your next launch</h2>
-          <p class="section-sub">Ready to visualize your next big idea? Briefly describe your needs below, and we'll connect with you within 24-48 hours.</p>
-          <div class="contact-details">
-            <a href="https://www.instagram.com/campfire.ai/" class="contact-link" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://sora.chatgpt.com/profile/campfire.ai" class="contact-link" target="_blank" rel="noopener">Sora</a>
-            <a href="https://www.tiktok.com/@campfire.ai" class="contact-link" target="_blank" rel="noopener">TikTok</a>
-            <a href="https://x.com/campfireai" class="contact-link" target="_blank" rel="noopener">X (Twitter)</a>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
+            <h3 class="text-white font-serif text-lg md:text-xl">Fashion & Lifestyle</h3>
+             <p class="text-gray-400 text-xs mt-1">Light, pose, and attitude.</p>
           </div>
         </div>
-        <form class="contact-form glass-card" aria-label="Project inquiry form">
-          <div class="form-field">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" placeholder="Your name" />
+
+        <!-- Item 3: Marble Light -->
+        <div class="reveal-on-scroll delay-200 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer">
+           <div class="slideshow-container" data-slideshow>
+            <img src="campfireai_assets/portfolio/marble_light/marble_coffee_mug.webp" class="slideshow-img active" loading="lazy">
+            <img src="campfireai_assets/portfolio/marble_light/marble_vase_minimal.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/marble_light/marble_bowl_bananas.webp" class="slideshow-img" loading="lazy">
           </div>
-          <div class="form-field">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@company.com" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
+            <h3 class="text-white font-serif text-lg md:text-xl">Marble Light</h3>
+            <p class="text-gray-400 text-xs mt-1">Minimal scenes, texture & shadow.</p>
           </div>
-          <div class="form-field">
-            <label for="project">Project type</label>
-            <select id="project" name="project">
-              <option value="" selected disabled>Select an option</option>
-              <option value="spatial">Digital</option>
-              <option value="campaign">Print</option>
-              <option value="story-kit">Consulting</option>
-              <option value="other">Something else</option>
+        </div>
+
+        <!-- Item 4: Lunar Shores -->
+        <div class="reveal-on-scroll delay-300 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer">
+           <div class="slideshow-container" data-slideshow>
+            <img src="campfireai_assets/portfolio/lunar_shores/lunar_surf_resort.webp" class="slideshow-img active" loading="lazy">
+            <img src="campfireai_assets/portfolio/lunar_shores/lunar_beach_dome.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/lunar_shores/lunar_beach_aerial.webp" class="slideshow-img" loading="lazy">
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
+            <h3 class="text-white font-serif text-lg md:text-xl">Lunar Shores</h3>
+             <p class="text-gray-400 text-xs mt-1">Surreal architecture & alien tides.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-24 section-blur border-t border-white/5 overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="reveal-on-scroll mb-12">
+        <h2 class="font-serif text-4xl md:text-5xl text-white mt-2">What we create together</h2>
+        <p class="text-gray-400 mt-4">A trio of collaborative offerings designed to meet you where you are.</p>
+      </div>
+
+      <!-- Horizontal Scroll Container for Mobile (Centered padding strategy), Grid for Desktop -->
+      <div class="flex lg:grid lg:grid-cols-3 overflow-x-auto snap-x snap-mandatory gap-6 pb-8 lg:pb-0 hide-scrollbar px-[10vw] lg:px-0">
+        
+        <!-- Service 1: Digital -->
+        <div class="min-w-[80vw] md:min-w-[45vw] lg:min-w-auto snap-center group reveal-on-scroll delay-100">
+          <div class="glass-frost p-6 rounded-3xl h-full flex flex-col">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 bg-gray-800">
+              <div class="slideshow-container" data-slideshow>
+                 <img src="campfireai_assets/services/digital/black_backpack_product.webp" class="slideshow-img active" loading="lazy">
+                 <img src="campfireai_assets/services/digital/embers_portrait_warm_glow.webp" class="slideshow-img" loading="lazy">
+                 <img src="campfireai_assets/services/digital/desert_sunset.webp" class="slideshow-img" loading="lazy">
+              </div>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-2">Digital Content</h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">Campaign-ready images & shortform video.</p>
+            <button data-project="digital" class="service-btn text-left text-campfire-orange uppercase tracking-widest text-xs font-bold border-b border-campfire-orange pb-1 hover:text-white hover:border-white transition-colors w-max">Start Project</button>
+          </div>
+        </div>
+
+        <!-- Service 2: Prints -->
+        <div class="min-w-[80vw] md:min-w-[45vw] lg:min-w-auto snap-center group reveal-on-scroll delay-200">
+           <div class="glass-frost p-6 rounded-3xl h-full flex flex-col">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 bg-gray-800">
+              <div class="slideshow-container" data-slideshow>
+                <img src="campfireai_assets/services/prints/unboxing_print_with_tattoo.webp" class="slideshow-img active" loading="lazy">
+                <img src="campfireai_assets/services/prints/hanging_large_framed_print.webp" class="slideshow-img" loading="lazy">
+                <img src="campfireai_assets/services/prints/black_brushstrokes_abstract.webp" class="slideshow-img" loading="lazy">
+              </div>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-2">Prints & Commissions</h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">From prompt to print, ready to display.</p>
+            <button data-project="print" class="service-btn text-left text-campfire-orange uppercase tracking-widest text-xs font-bold border-b border-campfire-orange pb-1 hover:text-white hover:border-white transition-colors w-max">Commission Art</button>
+          </div>
+        </div>
+
+        <!-- Service 3: Consulting -->
+        <div class="min-w-[80vw] md:min-w-[45vw] lg:min-w-auto snap-center group reveal-on-scroll delay-300">
+           <div class="glass-frost p-6 rounded-3xl h-full flex flex-col">
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6 bg-gray-800">
+               <div class="slideshow-container" data-slideshow>
+                <img src="campfireai_assets/services/consulting/campfire_whiteboard_design.webp" class="slideshow-img active" loading="lazy">
+                <img src="campfireai_assets/services/consulting/office_silhouettes.webp" class="slideshow-img" loading="lazy">
+                <img src="campfireai_assets/services/consulting/studio_backlight_scene.webp" class="slideshow-img" loading="lazy">
+              </div>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-2">Generative-AI Consulting</h3>
+            <p class="text-gray-400 text-sm mb-6 flex-grow">Expert guidance to streamline your creative process.</p>
+            <button data-project="consulting" class="service-btn text-left text-campfire-orange uppercase tracking-widest text-xs font-bold border-b border-campfire-orange pb-1 hover:text-white hover:border-white transition-colors w-max">Get Strategy</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Mobile Swipe Indicator -->
+      <div class="lg:hidden text-center mt-4 text-gray-500 text-xs animate-pulse">
+        <span>← Swipe to explore →</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="py-24 section-blur border-t border-white/5">
+    <div class="container mx-auto px-6">
+       <div class="text-center mb-16 reveal-on-scroll">
+        <h2 class="font-serif text-3xl md:text-4xl text-white">A collaborative, human-led process</h2>
+        <p class="text-gray-400 mt-2">Start with an idea, end with something you love.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+        <!-- Connector Line (Desktop) -->
+        <div class="hidden md:block absolute top-8 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-transparent via-white/10 to-transparent z-0"></div>
+
+        <!-- Step 1 -->
+        <div class="relative z-10 text-center reveal-on-scroll delay-100">
+          <div class="w-16 h-16 mx-auto bg-campfire-dark border border-white/20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+            <span class="text-campfire-orange font-serif text-2xl">1</span>
+          </div>
+          <h3 class="text-white text-xl font-serif mb-2">Discover</h3>
+          <p class="text-gray-400 text-sm max-w-xs mx-auto">Share your vision, brand, vibe, and mood. Clarify style, use, and desired outcome.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="relative z-10 text-center reveal-on-scroll delay-200">
+           <div class="w-16 h-16 mx-auto bg-campfire-dark border border-white/20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+            <span class="text-campfire-orange font-serif text-2xl">2</span>
+          </div>
+          <h3 class="text-white text-xl font-serif mb-2">Design</h3>
+          <p class="text-gray-400 text-sm max-w-xs mx-auto">The studio creates original images using advanced prompting and the latest generative models.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="relative z-10 text-center reveal-on-scroll delay-300">
+           <div class="w-16 h-16 mx-auto bg-campfire-dark border border-white/20 rounded-full flex items-center justify-center mb-6 shadow-lg">
+            <span class="text-campfire-orange font-serif text-2xl">3</span>
+          </div>
+          <h3 class="text-white text-xl font-serif mb-2">Deliver</h3>
+          <p class="text-gray-400 text-sm max-w-xs mx-auto">Receive organized, high-quality files for web, social, and print. Everything is shared privately and securely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Studio / Bio Section -->
+  <section id="studio" class="py-24 section-blur border-t border-white/5">
+    <div class="container mx-auto px-6">
+      <div class="glass-frost rounded-3xl p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 reveal-on-scroll">
+        <div class="w-full md:w-1/3 relative">
+          <div class="aspect-[3/4] rounded-xl overflow-hidden">
+             <img src="campfireai_assets/studio/bw_portrait_window_light.webp" alt="Andrew Salinas" class="w-full h-full object-cover filter grayscale hover:grayscale-0 transition-all duration-700">
+          </div>
+          <!-- Decorative Element -->
+          <div class="absolute -bottom-6 -right-6 w-24 h-24 border-r-2 border-b-2 border-campfire-orange/30 rounded-br-3xl"></div>
+        </div>
+        <div class="w-full md:w-2/3">
+          <p class="text-campfire-orange uppercase tracking-widest text-xs font-bold mb-4">Meet the Studio</p>
+          <h2 class="font-serif text-3xl md:text-5xl text-white mb-6 leading-tight">Led by Andrew, shaping crisp realism with subtle imagination.</h2>
+          <p class="text-gray-300 text-lg leading-relaxed mb-6 font-light">
+            CAMPFIRE AI Studio, led by Andrew Salinas, blends crisp realism with sparks of surreal imagination to help ideas look their best. Founded October 2022.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 section-blur border-t border-white/5 relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="max-w-4xl mx-auto glass-frost rounded-3xl p-8 md:p-16 reveal-on-scroll">
+        <div class="text-center mb-12">
+          <h2 class="font-serif text-4xl md:text-5xl text-white mb-4">Let's start a fire</h2>
+          <p class="text-gray-400">Ready to visualize your next big idea? Briefly describe your needs below, and we'll connect with you within 24-48 hours.</p>
+        </div>
+
+        <form class="space-y-6" aria-label="Project inquiry form">
+          <!-- Honeypot -->
+          <div class="hidden">
+             <label for="honey">Don't fill this out if you're human:</label>
+             <input type="text" name="honey" id="honey">
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label for="name" class="text-xs uppercase tracking-widest text-gray-500 ml-2">Name</label>
+              <input type="text" id="name" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-campfire-orange focus:bg-white/10 transition-colors" placeholder="Your name">
+            </div>
+            <div class="space-y-2">
+              <label for="email" class="text-xs uppercase tracking-widest text-gray-500 ml-2">Email</label>
+              <input type="email" id="email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-campfire-orange focus:bg-white/10 transition-colors" placeholder="you@company.com">
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label for="project" class="text-xs uppercase tracking-widest text-gray-500 ml-2">Project Type</label>
+            <select id="project" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-campfire-orange focus:bg-white/10 transition-colors appearance-none">
+              <option class="bg-campfire-dark text-gray-400" value="" disabled selected>Select an option</option>
+              <option class="bg-campfire-dark" value="digital">Digital Content</option>
+              <option class="bg-campfire-dark" value="print">Print Commission</option>
+              <option class="bg-campfire-dark" value="consulting">Generative Consulting</option>
+              <option class="bg-campfire-dark" value="other">Something else</option>
             </select>
           </div>
-          <div class="form-field">
-            <label for="message">Project notes</label>
-            <textarea id="message" name="message" rows="4" placeholder="Share timelines, deliverables, or inspiration references..."></textarea>
+
+          <div class="space-y-2">
+            <label for="message" class="text-xs uppercase tracking-widest text-gray-500 ml-2">Project Notes</label>
+            <textarea id="message" rows="4" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-campfire-orange focus:bg-white/10 transition-colors" placeholder="Share timelines, deliverables, or inspiration references..."></textarea>
           </div>
-          <button
-            type="submit"
-            class="cta-glow inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold text-white transition-all duration-200 focus-visible:outline-none"
-          >
+
+          <button type="submit" class="w-full bg-gradient-to-r from-campfire-orange to-orange-600 text-white font-bold py-4 rounded-lg hover:shadow-[0_0_20px_rgba(204,85,0,0.4)] transition-all duration-300 text-lg">
             Send inquiry
           </button>
         </form>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a href="#top" class="back-to-top">Back to top</a>
+  <!-- Footer -->
+  <footer class="bg-black py-12 border-t border-white/10">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="text-center md:text-left">
+         <a href="#top" class="font-bold text-lg tracking-widest text-white/30 hover:text-campfire-orange transition-colors">CAMPFIRE</a>
+      </div>
+      
+      <div class="flex gap-6 text-sm text-gray-400">
+         <a href="https://www.instagram.com/campfire.ai/" target="_blank" class="hover:text-campfire-orange transition-colors">Instagram</a>
+         <a href="https://sora.chatgpt.com/profile/campfire.ai" target="_blank" class="hover:text-campfire-orange transition-colors">Sora</a>
+         <a href="https://www.tiktok.com/@campfire.ai" target="_blank" class="hover:text-campfire-orange transition-colors">TikTok</a>
+         <a href="https://x.com/campfireai" target="_blank" class="hover:text-campfire-orange transition-colors">X (Twitter)</a>
+      </div>
+
+      <div>
+         <a href="#top" class="text-xs uppercase tracking-widest text-campfire-orange font-bold hover:text-white transition-colors">Back to Top ↑</a>
+      </div>
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script>
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const projectTypeMap = {
-      digital: 'spatial',
-      print: 'campaign',
-      consulting: 'story-kit'
+    // Scroll Animation Observer
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
     };
 
-    function applyProjectSelection(typeKey, selectEl) {
-      if (!selectEl) return;
-      const targetValue = projectTypeMap[typeKey];
-      if (targetValue) {
-        selectEl.value = targetValue;
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
+      observer.observe(el);
+    });
+
+    // Navbar Background Change on Scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('glass-nav', 'py-2');
+        navbar.classList.remove('py-4');
+      } else {
+        navbar.classList.remove('glass-nav', 'py-2');
+        navbar.classList.add('py-4');
       }
-    }
+    });
 
-    function initAutoSlides(selector) {
-      document.querySelectorAll(selector).forEach((media, index) => {
-        const imgs = Array.from(media.querySelectorAll('img'));
-        if (imgs.length === 0) return;
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        // Ensure only the first image is visible to start
-        imgs.forEach((img, i) => {
-          img.style.position = i === 0 ? 'relative' : 'absolute';
-          img.style.inset = '0';
-          img.style.width = '100%';
-          img.style.height = '100%';
-          img.style.objectFit = 'cover';
-          img.style.transition = 'opacity 500ms ease-in-out';
-          img.style.opacity = i === 0 ? '1' : '0';
+    mobileBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('translate-x-full');
+      if(isOpen) {
+        mobileMenu.classList.add('translate-x-full');
+      } else {
+        mobileMenu.classList.remove('translate-x-full');
+      }
+    });
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('translate-x-full');
+      });
+    });
+
+    // Auto Slideshow Logic with Stagger
+    function initSlideshows() {
+      const containers = document.querySelectorAll('[data-slideshow]');
+      
+      containers.forEach((container, containerIdx) => {
+        const images = container.querySelectorAll('.slideshow-img');
+        if (images.length < 2) return;
+        
+        let currentIndex = 0;
+        
+        // Ensure first image is visible
+        images.forEach((img, idx) => {
+          img.classList.toggle('active', idx === 0);
         });
 
-        if (reduceMotion || imgs.length === 1) return; // no animation
-
-        let i = 0;
-        const startDelay = 250 * index;
+        // Stagger the start time based on the container's index
         setTimeout(() => {
           setInterval(() => {
-            const next = (i + 1) % imgs.length;
-            imgs[i].style.opacity = '0';
-            imgs[next].style.opacity = '1';
-            i = next;
-          }, 5000);
-        }, startDelay);
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+          }, 4000); 
+        }, containerIdx * 250); // 250ms staggered start per slideshow
       });
     }
+    
+    initSlideshows();
 
-    // Services cards
-    initAutoSlides('.service-card .service-media');
-    // Portfolio showcase
-    initAutoSlides('.showcase-item .showcase-media');
+    // Project Type Routing
+    const serviceButtons = document.querySelectorAll('.service-btn');
+    const projectSelect = document.getElementById('project');
 
-    // --- Preselect contact form project type from URL query (?type=...) ---
-    (function preselectProjectFromQuery() {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const type = params.get('type');
-        if (!type) return;
-
-        // Map query types to the actual option values used in the #project <select>
-        // "Digital" -> value="spatial"
-        // "Print"   -> value="campaign"
-        // "Consulting" -> value="story-kit"
-        const select = document.getElementById('project');
-        if (!select) return;
-
-        applyProjectSelection(type.toLowerCase(), select);
-      } catch (e) {
-        // fail silently
-      }
-    })();
-
-    // --- Sync service CTA buttons to the contact form and URL without reloading ---
-    (function syncServiceButtonsToContact() {
-      const select = document.getElementById('project');
-      const buttons = document.querySelectorAll('.service-card .service-cta[data-project]');
-      if (!buttons.length) return;
-
-      buttons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const typeKey = (btn.dataset.project || '').toLowerCase();
-          if (!typeKey) return;
-
-          applyProjectSelection(typeKey, select);
-
-          try {
-            const url = new URL(window.location.href);
-            url.searchParams.set('type', typeKey);
-            history.replaceState(null, '', `${url.pathname}${url.search}#contact`);
-          } catch (e) {
-            // ignore history issues (e.g., unsupported browsers)
-          }
-        });
+    serviceButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const projectType = btn.getAttribute('data-project');
+        if(projectType && projectSelect) {
+          projectSelect.value = projectType;
+          document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
       });
-    })();
+    });
 
-    // --- Fade sections into view on scroll ---
-    (function initSectionFadeIns() {
-      const sections = document.querySelectorAll('section.fade-section');
-      if (!sections.length) return;
-
-      if (reduceMotion) {
-        sections.forEach((section) => section.classList.add('is-visible'));
-        return;
-      }
-
-      document.body.classList.add('has-scroll-animations');
-
-      const observer = new IntersectionObserver(
-        (entries, obs) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add('is-visible');
-            obs.unobserve(entry.target);
-          });
-        },
-        { threshold: 0.18, rootMargin: '0px 0px -10% 0px' }
-      );
-
-      sections.forEach((section) => observer.observe(section));
-    })();
   </script>
 </body>
 </html>
