@@ -573,6 +573,27 @@
     </div>
   </section>
 
+  <!-- Google tag (gtag.js) event - delayed navigation helper -->
+  <script>
+    // Helper function to delay opening a URL until a gtag event is sent.
+    // Call it in response to an action that should navigate to a URL.
+    function gtagSendEvent(target) {
+      var callback = function () {
+        if (typeof target === 'string') {
+          window.location = target;
+        } else if (typeof target === 'function') {
+          target();
+        }
+      };
+      gtag('event', 'ads_conversion_Submit_lead_form_1', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+        // <event_parameters>
+      });
+      return false;
+    }
+  </script>
+
   <!-- Footer -->
   <footer class="bg-black py-12 border-t border-white/10">
     <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -595,6 +616,16 @@
 
   <!-- Scripts -->
   <script>
+    const contactForm = document.querySelector('form[action="https://formspree.io/f/xgvkgkdy"]');
+    if (contactForm) {
+      contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const submitForm = () => contactForm.submit();
+        gtagSendEvent(submitForm);
+        setTimeout(submitForm, 2000);
+      });
+    }
+
     // Scroll Animation Observer
     const observerOptions = {
       root: null,
