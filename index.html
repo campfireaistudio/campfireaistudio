@@ -331,33 +331,50 @@
     <div class="container mx-auto px-6">
       <div class="mb-16 text-left reveal-on-scroll">
         <h2 class="font-serif text-4xl md:text-5xl text-white mb-4">Featured Worlds</h2>
-        <p class="text-gray-400 max-w-2xl text-lg">An evolving showcase of visual worlds, each one exploring a distinct facet of realism, imagination, and design.</p>
+        <p class="text-gray-400 max-w-2xl text-lg mb-4">
+          An evolving showcase of visual worlds, each one exploring a distinct facet of realism, imagination, and design.
+        </p>
+        <div class="flex items-center gap-1 text-campfire-orange text-xs md:text-sm font-medium tracking-wide animate-pulse">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3l1.6 4.3L18 9l-4.4 1.7L12 15l-1.6-4.3L6 9l4.4-1.7L12 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+          </svg>
+          <span>Click any card to expand the full collection.</span>
+        </div>
       </div>
 
       <!-- 2x2 Mobile, 4 Across Desktop -->
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         
         <!-- Item 1: Latent Realism -->
-        <div class="reveal-on-scroll group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer">
+        <div onclick="openGallery(this)" class="portfolio-card reveal-on-scroll group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer border border-transparent hover:border-campfire-orange/50 transition-all duration-300">
           <div class="slideshow-container" data-slideshow>
             <img src="campfireai_assets/portfolio/latent_realism/husky_trail_closeup.webp" class="slideshow-img active" loading="lazy">
             <img src="campfireai_assets/portfolio/latent_realism/airplane_window_sunset_clouds.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/latent_realism/autumn_mountain_foliage.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/latent_realism/snowy_modern_house_front.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/marble_light/marble_coffee_mug.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/latent_realism/wheat_field_city_silhouette.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/latent_realism/quartz_by_stream.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/latent_realism/moon_full_detail.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/latent_realism/glowing_crystal_cave.webp" class="slideshow-img" loading="lazy">
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
-            <h3 class="text-white font-serif text-lg md:text-xl">Latent Realism</h3>
-            <p class="text-gray-400 text-xs mt-1">Exploring the spectrum of realism.</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 md:p-6">
+            <div class="relative flex flex-col justify-end h-full">
+            <!-- Corner expand icon -->
+            <div class="absolute top-2 right-2 bg-black/50 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h3 class="gallery-title text-white font-serif text-lg md:text-xl">Latent Realism</h3>
+              <p class="text-gray-400 text-xs mt-1">Exploring the spectrum of realism.</p>
+            </div>
           </div>
         </div>
 
         <!-- Item 2: Fashion & Lifestyle -->
-        <div class="reveal-on-scroll delay-100 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer">
-           <div class="slideshow-container" data-slideshow>
+        <div onclick="openGallery(this)" class="portfolio-card reveal-on-scroll delay-100 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer border border-transparent hover:border-campfire-orange/50 transition-all duration-300">
+          <div class="slideshow-container" data-slideshow>
             <img src="campfireai_assets/portfolio/fashion_lifestyle/leather_jacket_chair.webp" class="slideshow-img active" loading="lazy">
             <img src="campfireai_assets/portfolio/fashion_lifestyle/pearl_necklace_display.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/fashion_lifestyle/rooftop_hoodie_group.webp" class="slideshow-img" loading="lazy">
@@ -370,35 +387,59 @@
             <img src="campfireai_assets/portfolio/fashion_lifestyle/summer_print_dress_laughing.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/fashion_lifestyle/summer_print_dress_side.webp" class="slideshow-img" loading="lazy">
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
-            <h3 class="text-white font-serif text-lg md:text-xl">Fashion & Lifestyle</h3>
-             <p class="text-gray-400 text-xs mt-1">Light, pose, and attitude.</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 md:p-6">
+            <div class="relative flex flex-col justify-end h-full">
+            <!-- Corner expand icon -->
+            <div class="absolute top-2 right-2 bg-black/50 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h3 class="gallery-title text-white font-serif text-lg md:text-xl">Fashion & Lifestyle</h3>
+              <p class="text-gray-400 text-xs mt-1">Light, pose, and attitude.</p>
+            </div>
           </div>
         </div>
 
-        <!-- Item 3: Marble Light -->
-        <div class="reveal-on-scroll delay-200 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer">
-           <div class="slideshow-container" data-slideshow>
-            <img src="campfireai_assets/portfolio/marble_light/marble_coffee_mug.webp" class="slideshow-img active" loading="lazy">
-            <img src="campfireai_assets/portfolio/marble_light/marble_vase_minimal.webp" class="slideshow-img" loading="lazy">
-            <img src="campfireai_assets/portfolio/marble_light/marble_bowl_bananas.webp" class="slideshow-img" loading="lazy">
+        <!-- Item 3: Textured Towns -->
+        <div onclick="openGallery(this)" class="portfolio-card reveal-on-scroll delay-200 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer border border-transparent hover:border-campfire-orange/50 transition-all duration-300">
+          <div class="slideshow-container" data-slideshow>
+            <img src="campfireai_assets/portfolio/textured_towns/los_angeles_typography.webp" class="slideshow-img active" loading="lazy">
+            <img src="campfireai_assets/portfolio/textured_towns/new_york_typography.webp" class="slideshow-img" loading="lazy">
+            <img src="campfireai_assets/portfolio/textured_towns/seattle_typography.webp" class="slideshow-img" loading="lazy">
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
-            <h3 class="text-white font-serif text-lg md:text-xl">Marble Light</h3>
-            <p class="text-gray-400 text-xs mt-1">Minimal scenes, texture & shadow.</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 md:p-6">
+            <div class="relative flex flex-col justify-end h-full">
+            <!-- Corner expand icon -->
+            <div class="absolute top-2 right-2 bg-black/50 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h3 class="gallery-title text-white font-serif text-lg md:text-xl">Textured Towns</h3>
+              <p class="text-gray-400 text-xs mt-1">Found-object typography for iconic cities.</p>
+            </div>
           </div>
         </div>
 
         <!-- Item 4: Lunar Shores -->
-        <div class="reveal-on-scroll delay-300 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer">
-           <div class="slideshow-container" data-slideshow>
+        <div onclick="openGallery(this)" class="portfolio-card reveal-on-scroll delay-300 group relative rounded-xl overflow-hidden aspect-[3/4] bg-gray-900 cursor-pointer border border-transparent hover:border-campfire-orange/50 transition-all duration-300">
+          <div class="slideshow-container" data-slideshow>
             <img src="campfireai_assets/portfolio/lunar_shores/lunar_surf_resort.webp" class="slideshow-img active" loading="lazy">
             <img src="campfireai_assets/portfolio/lunar_shores/lunar_beach_dome.webp" class="slideshow-img" loading="lazy">
             <img src="campfireai_assets/portfolio/lunar_shores/lunar_beach_aerial.webp" class="slideshow-img" loading="lazy">
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6">
-            <h3 class="text-white font-serif text-lg md:text-xl">Lunar Shores</h3>
-             <p class="text-gray-400 text-xs mt-1">Surreal architecture & alien tides.</p>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 md:p-6">
+            <div class="relative flex flex-col justify-end h-full">
+            <!-- Corner expand icon -->
+            <div class="absolute top-2 right-2 bg-black/50 backdrop-blur-md p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg class="h-4 w-4 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M5 9V5h4M15 5h4v4M19 15v4h-4M9 19H5v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </div>
+              <h3 class="gallery-title text-white font-serif text-lg md:text-xl">Lunar Shores</h3>
+              <p class="text-gray-400 text-xs mt-1">Surreal architecture & alien tides.</p>
+            </div>
           </div>
         </div>
 
@@ -566,6 +607,10 @@
               <input type="email" id="email" name="email" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-campfire-orange focus:bg-white/10 transition-colors" placeholder="you@company.com" required>
             </div>
           </div>
+          <div class="space-y-2">
+            <label for="phone" class="text-xs uppercase tracking-widest text-gray-500 ml-2">Phone</label>
+            <input type="tel" id="phone" name="phone" class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-campfire-orange focus:bg-white/10 transition-colors" placeholder="If you prefer a quick call.">
+          </div>
 
           <div class="space-y-2">
             <label for="project" class="text-xs uppercase tracking-widest text-gray-500 ml-2">Project Type</label>
@@ -590,6 +635,40 @@
       </div>
     </div>
   </section>
+
+  <!-- Portfolio Gallery Modal -->
+  <div id="gallery-modal" class="fixed inset-0 z-50 hidden opacity-0 pointer-events-none transition-opacity duration-300" aria-modal="true" role="dialog">
+    <!-- Backdrop -->
+    <button
+      type="button"
+      class="absolute inset-0 bg-black/95 backdrop-blur-xl"
+      onclick="closeGallery()"
+      aria-label="Close gallery overlay"
+    ></button>
+
+    <!-- Modal content -->
+    <div class="relative z-10 max-w-6xl mx-auto h-full flex flex-col pt-20 pb-10 px-4 md:px-8">
+      <div class="flex items-center justify-between mb-6">
+        <h3 id="gallery-title" class="text-2xl md:text-3xl font-serif text-white">Gallery</h3>
+        <button
+          type="button"
+          class="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-gray-200 hover:text-white transition"
+          onclick="closeGallery()"
+          aria-label="Close gallery"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 6l12 12M18 6l-12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex-1 overflow-y-auto custom-scrollbar">
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 pb-6">
+          <!-- Images injected via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-black py-12 border-t border-white/10">
@@ -702,6 +781,71 @@
     }
     
     initSlideshows();
+
+    // Portfolio Gallery Modal Logic
+    const galleryModal = document.getElementById('gallery-modal');
+    const galleryGrid = document.getElementById('gallery-grid');
+    const galleryTitleEl = document.getElementById('gallery-title');
+
+    function openGallery(cardElement) {
+      if (!galleryModal || !galleryGrid || !galleryTitleEl) return;
+
+      const titleEl = cardElement.querySelector('.gallery-title');
+      const titleText = titleEl ? titleEl.textContent.trim() : 'Gallery';
+      galleryTitleEl.textContent = titleText;
+
+      // Clear any previous images
+      galleryGrid.innerHTML = '';
+
+      // Use the existing slideshow images from this card
+      const images = cardElement.querySelectorAll('.slideshow-img');
+      images.forEach((img, index) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'relative overflow-hidden rounded-2xl bg-black/40 border border-white/10 shadow-lg';
+
+        const clone = document.createElement('img');
+        clone.src = img.src;
+        clone.loading = 'lazy';
+        clone.alt = `${titleText} image ${index + 1}`;
+        clone.className = 'w-full h-full object-cover transition-transform duration-500 hover:scale-[1.03]';
+
+        wrapper.appendChild(clone);
+        galleryGrid.appendChild(wrapper);
+      });
+
+      // Show modal
+      galleryModal.classList.remove('hidden', 'pointer-events-none');
+      requestAnimationFrame(() => {
+        galleryModal.classList.remove('opacity-0');
+        document.body.style.overflow = 'hidden';
+      });
+    }
+
+    function closeGallery() {
+      if (!galleryModal) return;
+
+      galleryModal.classList.add('opacity-0');
+
+      galleryModal.addEventListener(
+        'transitionend',
+        function handler() {
+          galleryModal.classList.add('hidden', 'pointer-events-none');
+          galleryModal.removeEventListener('transitionend', handler);
+          document.body.style.overflow = '';
+          if (galleryGrid) {
+            galleryGrid.innerHTML = '';
+          }
+        },
+        { once: true }
+      );
+    }
+
+    // Close gallery on Escape key
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && galleryModal && !galleryModal.classList.contains('hidden')) {
+        closeGallery();
+      }
+    });
 
     // Project Type Routing
     const serviceButtons = document.querySelectorAll('.service-btn');
