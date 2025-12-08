@@ -117,6 +117,16 @@
       overflow-x: hidden;
     }
 
+    .visually-hidden {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
     /* Fixed Background Image */
     .fixed-bg {
       position: fixed;
@@ -592,9 +602,17 @@
 
         <form action="https://formspree.io/f/xgvkgkdy" method="POST" class="space-y-6" aria-label="Project inquiry form">
           <!-- Honeypot -->
-          <div class="hidden">
-             <label for="honey">Don't fill this out if you're human:</label>
-             <input type="text" name="honey" id="honey">
+          <div class="visually-hidden" aria-hidden="true">
+             <label for="company_website" class="visually-hidden">Company website (leave blank)</label>
+             <input
+               type="text"
+               name="company_website"
+               id="company_website"
+               tabindex="-1"
+               autocomplete="off"
+               aria-hidden="true"
+             >
+             <!-- Formspree: configure a spam rule to discard submissions where "company_website" contains a value. -->
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
