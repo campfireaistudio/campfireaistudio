@@ -777,3 +777,10 @@ textarea {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.4);
 }
+
+body.menu-open {
+  position: fixed;
+  width: 100%;
+  overflow: hidden; /* Locks the page in place */
+  height: 100vh;    /* Prevents rubber-banding on iOS */
+}
