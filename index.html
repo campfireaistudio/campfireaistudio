@@ -170,7 +170,7 @@
       width: 100vw;
       height: 100vh;
       z-index: -1;
-      background-image: url('campfireai_assets/backgrounds/campfire_landscape.webp');
+      background-image: url('campfireai_assets/backgrounds/cloud_redefine_realistic_2x.jpg');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -179,7 +179,7 @@
     /* Mobile Background Adjustment */
     @media (max-width: 768px) {
       .fixed-bg {
-        background-image: url('campfireai_assets/backgrounds/campfire_portrait.webp');
+        background-image: url('campfireai_assets/backgrounds/cloud_redefine_realistic_2x.jpg');
       }
     }
 
@@ -188,6 +188,61 @@
       background: rgba(5, 5, 5, 0.75);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
+    }
+
+    .hero-backdrop {
+      background: linear-gradient(
+        180deg,
+        rgba(5, 5, 5, var(--hero-scrim-opacity, 0.52)) 0%,
+        rgba(5, 5, 5, var(--hero-scrim-opacity, 0.52)) 34%,
+        rgba(5, 5, 5, 0.52) 62%,
+        rgba(5, 5, 5, 0.28) 82%,
+        rgba(5, 5, 5, 0.08) 94%,
+        rgba(5, 5, 5, 0) 100%
+      );
+      backdrop-filter: blur(var(--hero-bg-blur, 0px));
+      -webkit-backdrop-filter: blur(var(--hero-bg-blur, 0px));
+      transition: background 0.2s ease;
+    }
+
+    .why-ai-transition {
+      position: relative;
+      margin-top: clamp(-18rem, -28vh, -10rem);
+      padding-top: calc(clamp(10rem, 28vh, 18rem) + 6rem);
+      padding-bottom: 6rem;
+      background: linear-gradient(
+        180deg,
+        rgba(5, 5, 5, 0) 0,
+        rgba(5, 5, 5, 0.18) clamp(7rem, 14vh, 9rem),
+        rgba(5, 5, 5, 0.56) clamp(16rem, 30vh, 20rem),
+        rgba(5, 5, 5, 0.74) clamp(22rem, 38vh, 26rem),
+        rgba(5, 5, 5, 0.78) 100%
+      );
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      mask-image: linear-gradient(
+        180deg,
+        transparent 0,
+        rgba(0, 0, 0, 0.42) clamp(9rem, 16vh, 11rem),
+        rgba(0, 0, 0, 0.82) clamp(18rem, 32vh, 22rem),
+        #000 clamp(24rem, 42vh, 28rem),
+        #000 100%
+      );
+      -webkit-mask-image: linear-gradient(
+        180deg,
+        transparent 0,
+        rgba(0, 0, 0, 0.42) clamp(9rem, 16vh, 11rem),
+        rgba(0, 0, 0, 0.82) clamp(18rem, 32vh, 22rem),
+        #000 clamp(24rem, 42vh, 28rem),
+        #000 100%
+      );
+    }
+
+    @media (min-width: 768px) {
+      .why-ai-transition {
+        padding-top: calc(clamp(10rem, 28vh, 18rem) + 8rem);
+        padding-bottom: 8rem;
+      }
     }
 
     /* Glassmorphism for Cards (Frost Effect) */
@@ -310,18 +365,18 @@
   </nav>
 
   <!-- Hero Section -->
-  <header id="top" class="relative h-screen w-full flex items-center justify-center overflow-hidden section-blur">
+  <header id="top" class="relative h-screen w-full flex items-center justify-center md:justify-start overflow-hidden hero-backdrop">
     <!-- Text Container -->
-    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto mt-12">
+    <div class="relative z-10 w-full text-center md:text-left px-6 md:px-0 max-w-5xl md:max-w-[32rem] mx-auto md:mx-0 md:ml-[7vw] lg:ml-[8vw] xl:ml-[10vw] mt-12 md:-translate-y-8">
       <p class="reveal-on-scroll font-sans text-campfire-orange uppercase tracking-[0.25em] text-sm mb-6 font-semibold">Est. 2022</p>
-      <h1 class="reveal-on-scroll delay-100 font-serif text-5xl md:text-7xl lg:text-8xl leading-tight text-white mb-8">
+      <h1 class="reveal-on-scroll delay-100 font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight text-white mb-8">
         Reality, <br />
         <span class="italic text-white/90">Reimagined.</span>
       </h1>
-      <p class="reveal-on-scroll delay-200 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed mb-10 font-light drop-shadow-lg">
-        CAMPFIRE AI Studio blends crisp realism with sparks of surreal imagination to create story-driven imagery for brands, creators, and collectors.
+      <p class="reveal-on-scroll delay-200 text-lg md:text-xl text-gray-200 max-w-2xl md:max-w-[32rem] mx-auto md:mx-0 leading-relaxed mb-10 font-light drop-shadow-lg">
+        CAMPFIRE AI Studio creates product, lifestyle, and campaign imagery for forward-thinking brands.
       </p>
-      <div class="reveal-on-scroll delay-300 flex flex-col md:flex-row gap-4 justify-center">
+      <div class="reveal-on-scroll delay-300 flex flex-col md:flex-row gap-4 justify-center md:justify-start">
         <a href="#contact" class="px-8 py-4 bg-gradient-to-r from-campfire-orange to-orange-600 rounded-full text-white font-medium hover:shadow-[0_0_30px_-5px_rgba(204,85,0,0.6)] transition-all duration-300 transform hover:-translate-y-1">
           Start a Project
         </a>
@@ -340,7 +395,7 @@
   </header>
 
   <!-- Why AI Section -->
-  <section id="why-ai" class="py-24 md:py-32 section-blur border-t border-white/5">
+  <section id="why-ai" class="why-ai-transition">
     <div class="container mx-auto px-6">
       <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-on-scroll">
         <div class="max-w-xl">
@@ -798,6 +853,32 @@
     document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
       observer.observe(el);
     });
+
+    const hero = document.getElementById('top');
+    const maxHeroBlur = 8;
+    let heroBackdropFrame = null;
+
+    function updateHeroBackdrop() {
+      if (!hero) return;
+
+      const transitionDistance = Math.max(hero.offsetHeight * 0.85, window.innerHeight * 0.85);
+      const progress = Math.min(Math.max(window.scrollY / transitionDistance, 0), 1);
+      const blur = progress * maxHeroBlur;
+      const scrimOpacity = 0.42 + (progress * 0.33);
+
+      hero.style.setProperty('--hero-bg-blur', `${blur.toFixed(2)}px`);
+      hero.style.setProperty('--hero-scrim-opacity', scrimOpacity.toFixed(3));
+      heroBackdropFrame = null;
+    }
+
+    function scheduleHeroBackdropUpdate() {
+      if (heroBackdropFrame !== null) return;
+      heroBackdropFrame = window.requestAnimationFrame(updateHeroBackdrop);
+    }
+
+    updateHeroBackdrop();
+    window.addEventListener('scroll', scheduleHeroBackdropUpdate, { passive: true });
+    window.addEventListener('resize', scheduleHeroBackdropUpdate);
 
     // Navbar Background Change on Scroll
     const navbar = document.getElementById('navbar');
